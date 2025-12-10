@@ -39,7 +39,7 @@
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->
 
-<section style:height={index <= 2 ? '100vh' : '(100vh - 150px)'}>
+<section style:height={index <= 2 ? '100dvh' : '(100dvh - 150px)'}>
 <!-- <h1>{index}</h1> -->
     {#if index == 0}
         <!-- START -->

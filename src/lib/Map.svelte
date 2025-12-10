@@ -794,7 +794,7 @@
 section {
   width: max(350px,100%);
   height:350px;
-  height:calc(100vh - 250px);
+  height:calc(100dvh - 180px);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -726,7 +726,7 @@ function Map$1($$payload, $$props) {
   let $$settled = true;
   let $$inner_payload;
   function $$render_inner($$payload2) {
-    $$payload2.out += `<section class="svelte-oo6y9f"><svg viewBox="0 0 600 600" class="svelte-oo6y9f"><defs><style>
+    $$payload2.out += `<section class="svelte-wgpoqr"><svg viewBox="0 0 600 600" class="svelte-wgpoqr"><defs><style>
         .unclick {
           pointer-events:none;
         }
@@ -1568,7 +1568,9 @@ function Container($$payload) {
   let $$settled = true;
   let $$inner_payload;
   function $$render_inner($$payload2) {
-    $$payload2.out += `<section${add_styles({ height: index <= 2 ? "100vh" : "(100vh - 150px)" })} class="svelte-4kn5hw">`;
+    $$payload2.out += `<section${add_styles({
+      height: index <= 2 ? "100dvh" : "(100dvh - 150px)"
+    })} class="svelte-4kn5hw">`;
     if (index == 0) {
       $$payload2.out += "<!--[-->";
       Start($$payload2, {
