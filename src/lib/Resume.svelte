@@ -2,46 +2,61 @@
   import { text } from "@sveltejs/kit";
   import {goto} from "$app/navigation"
 
-    export let index, sector, area, state
+    export let index, sector, area, state, jurus
 
     let s = ""
     let t = []
     let a = ""
     let p = ""
     let i = []
+    let j = ""
 
-    $: if (sector == "nikel") {
-        s = "Smelter Nikel"
-        t = ["Lim Hariyanto"]
-        i = ["lim-hariyanto"]
-    } else if (sector == "geothermal") {
-        s = "Geothermal"
-        t = ["Pertamina", "PLN"]
-        i = ["pertamina", "pln"]
-    } else if (sector == "kik") {
-        s = "Kawasan Industri Hijau Indonesia"
-        t = ["Boy Thohir"]
-        i = ["boy-thohir"]
-    } else if (sector == "pariwisata") {
-        s = "Pariwisata"
-        t = ["PT Aviasi Pariwisata Indonesia (Injourney)"]
-        i = ["injourney"]
-    } else if (sector == "food") {
-        s = "Food Estate"
-        t = ["Haji Isam"]
-        i = ["haji-isam"]
-    } else if (sector == "ikn") {
-        s = "Ibu Kota Nusantara"
-        t = ["Aguan"]
-        i = ["aguan"]
-    } else if (sector == "rempang") {
-        s = "Rempang Eco City"
-        t = ["Tomy Winata"]
-        i = ["tomy-winata"]
-    } else if (sector == "tebu") {
-        s = "Tebu & Bioetanol"
-        t = ["Martias Fangiono"]
-        i = ["martias-fangiono"]
+    $: if (sector == "bendungan") {
+        s = "Bendungan"
+        // t = ["Lim Hariyanto"]
+        // i = ["lim-hariyanto"]
+    } else if (sector == "jalantol") {
+        s = "Jalan Tol"
+        // t = ["Pertamina", "PLN"]
+        // i = ["pertamina", "pln"]
+    } else if (sector == "kereta") {
+        s = "Kereta Api"
+        // t = ["Boy Thohir"]
+        // i = ["boy-thohir"]
+    } else if (sector == "bandara") {
+        s = "Bandara/Pelabuhan"
+        // t = ["PT Aviasi Pariwisata Indonesia (Injourney)"]
+        // i = ["injourney"]
+    } else if (sector == "energi") {
+        s = "Infrastruktur Energi"
+        // t = ["Haji Isam"]
+        // i = ["haji-isam"]
+    } else if (sector == "smelter") {
+        s = "Smelter"
+        // t = ["Aguan"]
+        // i = ["aguan"]
+    } else if (sector == "kie") {
+        s = "Kawasan Industri/Ekonomi"
+        // t = ["Tomy Winata"]
+        // i = ["tomy-winata"]
+    } else if (sector == "pangan") {
+        s = "Lumbung Pangan"
+        // t = ["Martias Fangiono"]
+        // i = ["martias-fangiono"]
+    }
+
+    $: if (jurus == "hijau") {
+        j = 'Beri proyek label "hijau"'
+    } else if (jurus == "nasionalisme") {
+        j = "Gaungkan narasi nasionalisme dan kedaulatan"
+    } else if (jurus == "csr") {
+        j = "CSR: bagi sembako, bangun posyandu, tanam pohon, dll"
+    } else if (jurus == "peneliti") {
+        j = "Bayar peneliti abal-abal bikin kajian pesanan"
+    } else if (jurus == "influencer") {
+        j = "Bayar influencer untuk promosikan proyek"
+    } else if (jurus == "iklan") {
+        j = "Pasang iklan besar di media agar berita proyek positif"
     }
 
     $: if (area = 0) {
@@ -67,42 +82,44 @@
     <h2>Resume Proyek</h2>
     <div>
         <div class="resume">
-            <p class="head">Sektor Proyek</p>
+            <p class="head">Proyek:</p>
             <p class="content">{s}</p>
         </div>
         <div class="resume">
-            <p class="head">Kelengkapan Dokumen</p>
+            <p class="head">Perizinan:</p>
             <p class="content">Lengkap</p>
         </div>
         <div class="resume">
-            <p class="head">Lokasi Proyek</p>
+            <p class="head">Menggusur Lahan:</p>
             <p class="content">{a}</p>
         </div>
         <div class="resume">
-            <p class="head">Penanganan Protes Masyarakat</p>
+            <p class="head">Metode Penanganan Massa</p>
             <p class="content">{p}</p>
         </div>
-    </div>
-    <div>
-        <p class="head">Berdasarkan sektor, kamu seperti:
-        </p>
-        <div class="tokoh-container">
-            {#each t as tokoh}
-            <div class="tokoh">
-                    <img src="./images/{tokoh.toLowerCase().replace(" ", "-")}.png" alt={tokoh}>
-                    <p style:width="100%" style:text-align="center"
-                    style:font-size="0.7rem">{tokoh}</p>
-            </div>
-            {/each}
+        <div class="resume">
+            <p class="head">Jurus Cuci Dosa:</p>
+            <p class="content">{j}</p>
         </div>
     </div>
+
     <div class='button-container'>
         <button on:click={() => index = 0}>Selesai</button>
-        <a class='button' href="https://projectmultatuli.org/serial/proyeksengsaranasional/">Baca Serial PSN</a>
+        <a class='button' href="https://projectmultatuli.org/proyek-sengsara-nasional/">Baca Serial PSN</a>
     </div>
     <!-- <button on:click={() => index = 0}
         style:margin-top="0.5rem"
     >Bagikan</button> -->
+    <div class="congratulations">
+        <div class="left"></div>
+        <div class="center">
+            <p>
+                Kamu sudah siap jadi investor PSN!
+            </p>
+        </div>
+        <div class="right"></div>
+        
+    </div>
 </section>
 
 <style>
@@ -117,7 +134,27 @@
     }
     div {
         width:90%;
-        
+    }
+    .congratulations {
+        width:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        margin-top: 1rem;
+    }
+    .congratulations > div {
+        width:33%
+    }
+    .center > p {
+        font-family: 'Lexend Giga', sans-serif;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.4rem;
+    }
+    .right, .left {
+        height:100%;
+        background-color: red;
     }
     h2 {
         font-family: 'Lexend Giga', sans-serif;
@@ -128,7 +165,7 @@
         margin: 0;
     }
     .resume {
-        margin-bottom:0.5rem;
+        margin-bottom:1rem;
     }
     .head {
         font-family: 'Lexend Giga', sans-serif;

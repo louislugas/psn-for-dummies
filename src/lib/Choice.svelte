@@ -3,7 +3,10 @@
 </script>
 
 <section>
-    {#if index == 9}
+    {#if index == 8}
+        <button style:height="160px" on:click={() => {index = 11}}>Nggak usah deh, seadanya aja.</button>
+        <button style:height="160px" on:click={() => {index = 9}}>Boleh deh sosialisasi yang bener.</button>
+    {:else if index == 9}
         <!-- PILIH AREA -->
         {#if area == 0}
             <button on:click={() => {index = 10}}>Minta KLHK ubah status hutan</button>

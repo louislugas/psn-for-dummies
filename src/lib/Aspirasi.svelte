@@ -79,7 +79,7 @@
         isProcess = false
         clearTimeout(solveTimer)
         people.forEach(d => d.status = "idle")
-        index = 12
+        index = 11
     }
 	
 	$: if (time == 0) {

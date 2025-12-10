@@ -123,7 +123,7 @@
 	}
 
 	$: if (match) {
-		index = 7
+		index = 6
 	}
 </script>
 
@@ -229,7 +229,7 @@
 	<Direct 
 		bind:showDirect
 		bind:play
-		content="Geser dokumen di sisi kiri berdasarkan kelompok di sisi kanan"
+		content="Geser dokumen di kiri ke kategori yang tepat di kanan."
 	/>
 	{/if}
 </section>

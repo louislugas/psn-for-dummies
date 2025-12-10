@@ -3,8 +3,6 @@
     import Intro from '$lib/Intro.svelte'
     import Start from './Start.svelte'
 
-    // import { dropzone, draggable } from '$lib/dnd';
-
     import pageFlip from "$lib/audio/psn-audio-page-flip.mp3"
     import gameOver from "$lib/audio/psn-audio-game-over.mp3"
     import gameWin from "$lib/audio/psn-audio-success.mp3"
@@ -14,6 +12,7 @@
     let goAudio
     let winAudio
 
+    // AUDIO PLAY
     $: if (index >= 1) {
         if (index == 23) {
             goAudio.play()
@@ -26,21 +25,21 @@
         } else {
             // audio play
             bgAudio.play()
-            console.log(index)
         }
     }
 
-    // $:console.log(index)
+    // DEBUG CHECKER
+    $:console.log(index)
 </script>
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->
 
-<section style:height={index <= 1 ? '100vh' : '80vh'}>
+<section style:height={index <= 2 ? '100vh' : '80vh'}>
 <!-- <h1>{index}</h1> -->
     {#if index == 0}
         <!-- START -->
         <Start bind:index />
-    {:else if index == 1}
+    {:else if index >= 1 && index <= 2}
         <!-- INTRO -->
         <Intro bind:index />
     {:else}

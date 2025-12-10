@@ -41,7 +41,7 @@
     function next() {
         allowClick = true
         dialog.close()
-        index = 9
+        index = 8
     }
 </script>
 

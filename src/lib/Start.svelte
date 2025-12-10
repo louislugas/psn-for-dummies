@@ -20,6 +20,9 @@
     </div>
     <div class="bottom">
         <div class="left">
+            <img src="./images/joko-widodo-1.png" alt="Prabowo Subianto - PSN for Dummies">
+        </div>
+        <div class="center">
             <button on:click={() => {index = 1}}>MULAI</button>
         </div>
         <div class="right">
@@ -96,16 +99,20 @@
         height:60%;
         width:100%;
         display: flex;
+        justify-content: center;
     }
     .left, .right {
         display: flex;
         justify-content: center;
         align-items: center;
-        width:50%;
+        width:30%;
         height:100%;
-    }
-    .right {
         align-items: flex-end;
+    }
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     button {
         font-family: "Atma", sans-serif;

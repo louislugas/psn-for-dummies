@@ -1,13 +1,17 @@
 <script>
     import ButtonAudio from "./ButtonAudio.svelte";
 
-    export let index, sector
+    export let index, sector, jurus
 
     let play = false
     let selected = false
 
     function select(e) {
-        sector = e.target.dataset.value
+        if (index == 3) {
+            sector = e.target.dataset.value
+        } else if  (index == 13) {
+            jurus = e.target.dataset.value
+        }
         selected = true
         playAudio()
     }
@@ -19,23 +23,41 @@
 </script>
 
 <section>
-    <h2>Pilih sektor usahamu:</h2>
-    <!-- <select bind:value={sector}>
-        <option value="pertambangan">Pertambangan</option>
-        <option value="agrikultur">Agrikultur</option>
-        <option value="pariwisata">Pariwisata</option>
-    </select> -->
-    <div>
-        <button class="sector" class:selected={sector == "nikel" && selected} on:click={select} data-value="nikel">Smelter Nikel</button>
-        <button class="sector" class:selected={sector == "geothermal" && selected} on:click={select} data-value="geothermal">Geothermal</button>
-        <button class="sector" class:selected={sector == "kik" && selected} on:click={select} data-value="kik">Kawasan Industri Hijau</button>
-        <button class="sector" class:selected={sector == "pariwisata" && selected} on:click={select} data-value="pariwisata">Pariwisata</button>
-        <button class="sector" class:selected={sector == "food" && selected} on:click={select} data-value="food">Food Estate</button>
-        <button class="sector" class:selected={sector == "ikn" && selected} on:click={select} data-value="ikn">IKN</button>
-        <button class="sector" class:selected={sector == "rempang" && selected} on:click={select} data-value="rempang">Rempang Eco City</button>
-        <button class="sector" class:selected={sector == "tebu" && selected} on:click={select} data-value="tebu">Tebu & Bioetanol</button>
-    </div>
-    <button class="next" on:click={() => {index = 3}} disabled={!selected}>Lanjut</button>
+    {#if index == 3}
+        <h2>Pilih sektor usahamu:</h2>
+        <!-- <select bind:value={sector}>
+            <option value="pertambangan">Pertambangan</option>
+            <option value="agrikultur">Agrikultur</option>
+            <option value="pariwisata">Pariwisata</option>
+        </select> -->
+        <div>
+            <button class="sector" class:selected={sector == "bendungan" && selected} on:click={select} data-value="bendungan">Bendungan</button>
+            <button class="sector" class:selected={sector == "jalantol" && selected} on:click={select} data-value="jalantol">Jalan Tol</button>
+            <button class="sector" class:selected={sector == "kereta" && selected} on:click={select} data-value="kereta">Kereta Api</button>
+            <button class="sector" class:selected={sector == "bandara" && selected} on:click={select} data-value="bandara">Bandara/Pelabuhan</button>
+            <button class="sector" class:selected={sector == "energi" && selected} on:click={select} data-value="energi">Infrastruktur Energi</button>
+            <button class="sector" class:selected={sector == "smelter" && selected} on:click={select} data-value="smelter">Smelter</button>
+            <button class="sector" class:selected={sector == "kie" && selected} on:click={select} data-value="kie">Kawasan Industri/ Ekonomi</button>
+            <button class="sector" class:selected={sector == "pangan" && selected} on:click={select} data-value="pangan">Lumbung Pangan</button>
+        </div>
+        <button class="next" on:click={() => {index = 4}} disabled={!selected}>Lanjut</button>
+    {:else if index == 13}
+            <h2>Pilih satu jurus yang kamu paling cocok!</h2>
+            <!-- <select bind:value={sector}>
+                <option value="pertambangan">Pertambangan</option>
+                <option value="agrikultur">Agrikultur</option>
+                <option value="pariwisata">Pariwisata</option>
+            </select> -->
+            <div>
+                <button class="sector" class:selected={jurus == "hijau" && selected} on:click={select} data-value="hijau">Beri proyekmu label "hijau"</button>
+                <button class="sector" class:selected={jurus == "nasionalisme" && selected} on:click={select} data-value="nasionalisme">Gaungkan narasi nasionalisme dan kedaulatan</button>
+                <button class="sector" class:selected={jurus == "csr" && selected} on:click={select} data-value="csr">CSR: bagi sembako, bangun posyandu, tanam pohon, dll</button>
+                <button class="sector" class:selected={jurus == "peneliti" && selected} on:click={select} data-value="peneliti">Bayar peneliti abal-abal bikin kajian pesanan</button>
+                <button class="sector" class:selected={jurus == "influencer" && selected} on:click={select} data-value="influencer">Bayar influencer untuk promosikan proyek</button>
+                <button class="sector" class:selected={jurus == "iklan" && selected} on:click={select} data-value="iklan">Pasang iklan besar di media agar berita proyekmu positif</button>
+            </div>
+            <button class="next" on:click={() => {index = 14}} disabled={!selected}>Lanjut</button>
+    {/if}
 </section>
 
 <ButtonAudio {play} />

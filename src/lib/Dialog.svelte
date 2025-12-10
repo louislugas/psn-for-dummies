@@ -9,9 +9,9 @@
     function typewriter(node, { speed = 1 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
 
-		if (!valid) {
-			throw new Error(`This transition only works on elements with a single text node child`);
-		}
+		// if (!valid) {
+		// 	throw new Error(`This transition only works on elements with a single text node child`);
+		// }
 
 		const text = node.textContent
 		const duration = text.length / (speed * 0.1)
@@ -47,34 +47,23 @@
 
 <div class="dialog">
     <div class="text">
-        {#if index == 2} <!-- PILIH SEKTOR-->
-            <h3>Joko Widodo</h3>
-            {#if visible}
+        {#if index == 3} <!-- PILIH SEKTOR -->
             <p in:typewriter>
-                Halo, kamu mau membuat Proyek Strategis Nasional yang diakui negara? Pilih dulu bidang proyekmu!
-            </p>
-            {/if}
-
-        {:else if index == 3} <!-- INFOGRAFIS STATIS -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                Sebelum dimulai, ada beberapa kriteria agar proyekmu bisa jadi Proyek Strategis Nasional. Yang pertama adalah Kriteria Dasar.
+                Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?
             </p>
             {#if next}
             <button on:click={() => goto(4)}>Lanjut</button>
             {/if}
 
         {:else if index == 4} <!-- INFOGRAFIS STATIS -->
-            <h3>Joko Widodo</h3>
             <p in:typewriter>
-                Lalu ada Kriteria Strategis. Tenang, ga usah diambil pusing.
+                Ini kriteria biar proyek kamu masuk daftar PSN. Tapi gak usah diambil pusing. Yang penting poin terakhir aja. Buat kamu, duit Rp500 miliar <em>sih</em> sepele.
             </p>
             {#if next}
             <button on:click={() => goto(5)}>Lanjut</button>
             {/if}
 
         {:else if index == 5} <!-- INFOGRAFIS STATIS -->
-            <h3>Joko Widodo</h3>
             <p in:typewriter>
                 Yang terakhir dan nggak kalah penting  itu Kriteria Operasional. Terutama duit investasinya, itu yang paling penting.
             </p>
@@ -82,8 +71,7 @@
             <button on:click={() => goto(6)}>Lanjut</button>
             {/if}
 
-        {:else if index == 6} <!-- MENCOCOKKAN DOKUMEN -->
-            <h3>Joko Widodo</h3>
+        {:else if index == 5} <!-- MENCOCOKKAN DOKUMEN -->
             <p in:typewriter>
                 Nah, sekarang kamu harus melengkapi dokumen-dokumen terkait biar proyekmu segera disetujui.
             </p>
@@ -93,75 +81,34 @@
             {#if match}
             <button on:click={() => goto(7)}>Lanjut</button>
             {/if}
-        {:else if index == 7} <!-- MENCOCOKKAN DOKUMEN -->
-            <h3>Joko Widodo</h3>
+        {:else if index == 6} <!-- MENCOCOKKAN DOKUMEN -->
             <p in:typewriter>
                 Selamat! Dokumen persyaratanmu sudah lengkap!
             </p>
             {#if next}
-            <button on:click={() => goto(8)}>Lanjut</button>
+            <button on:click={() => goto(7)}>Lanjut</button>
             {/if}
 
-        {:else if index == 8} <!-- PILIH AREA -->
-            <h3>Joko Widodo</h3>
+        {:else if index == 7} <!-- PILIH AREA -->
             <p in:typewriter>
                 Sebelumnya kamu sudah memilih sektor, sekarang pilih di mana lokasi proyekmu! Pastikan sektormu sesuai dengan tata ruang lokasinya yaa~
-            </p>
-            <p in:typewriter>
+                <br>
+                <br>
                 Klik area di peta untuk memilih sektor.
             </p>
 
-        {:else if index == 9} <!-- PILIH AREA -->
-            {#if area == 0}
-                <!-- KAWASAN HUTAN & MASYARAKAT ADAT -->
-                <h3>Siti Nurbaya Bakar</h3>
-                {#if visible}
-                <p in:typewriter>
-                    Halo, saya Menteri Kehutanan. Sebagai perwakilan pemerintah,kami siap bantu, bahkan kalau lokasinya nggak sesuai aturan.
-                </p>
-                {/if}
-            {:else if area == 1}
-                <!-- WILAYAH PESISIR -->
-                <h3>Agus Harimurti Yudhoyono</h3>
-                {#if visible}
-                <p in:typewriter>
-                    Halo, saya Menteri Agraria dan Tata Ruang. Sebagai perwakilan pemerintah,kami siap bantu, bahkan kalau lokasinya nggak sesuai aturan.
-                </p>
-                {/if}
-            {:else if area == 2}
-                <!-- PERTANIAN/PERKEBUNAN -->
-                <h3>Agus Harimurti Yudhoyono</h3>
-                {#if visible}
-                <p in:typewriter>
-                    Halo, saya Menteri Agraria dan Tata Ruang. Sebagai perwakilan pemerintah,kami siap bantu, bahkan kalau lokasinya nggak sesuai aturan.
-                </p>
-                {/if}
-            {:else if area == 3}
-                <!-- PEMUKIMAN MASYARAKAT -->
-                <h3>Listyo Sigit Prabowo</h3>
-                {#if visible}
-                <p in:typewriter>
-                    Ijin lapor! Butuh gusur-gusur? Kami dari kepolisian siap membantu! Bahkan kalau lokasinya nggak sesuai aturan.
-                </p>
-                {/if}
-            {/if}
-
-        {:else if index == 10} <!-- AMDAL -->
-            <h3>Joko Widodo</h3>
+        {:else if index == 8} <!-- SOSIALISASI PROYEK -->
             <p in:typewriter>
-                Buat bikin AMDAL dan bebasin lahan, kamu harus libatkan masyarakat. Gimana strategimu?
-            </p>
-            <p>Tenang! UU Cipta Kerja bikin semuanya lebih gampang.
+                Kamu mau sosialisasikan gak proyeknya?
             </p>
 
-        {:else if index == 11} <!-- DENGARKAN MASYARAKAT ( INTRO )-->
-            <h3>Luhut Binsar Panjaitan</h3>
+        {:else if index == 9} <!-- DENGARKAN MASYARAKAT ( INTRO )-->
             {#if time > 10 && time <= 30}
             {#if visible}
             <p in:typewriter>
-                Pilih libatkan masyarakat? Kau nggak boleh buru-buru! Kau jelaskan itu pro-kontra proyek ke masyarakat, lalu kau dengar baik-baik aspirasi masyarakat dan penuhi kebutuhan mereka.
+                Hmm... Coba saya mau lihat bagaimana cara kamu jelaskan pro-kontra proyek ke masyarakat.
                 <br><br>
-                Klik masyarakat yang angkat tangan untuk mendengarkan aspirasi mereka!
+                Klik warga yang angkat tangan untuk <em>dengerin</em> aspirasinya.
             </p>
             {/if}
             {:else if time <= 10 && time > 0}
@@ -174,24 +121,23 @@
             </p>
             {/if}
 
-        {:else if index == 12} <!-- PROTES MASYARAKAT -->
-            <h3>Listyo Sigit Prabowo</h3>
+        {:else if index == 11} <!-- PROTES MASYARAKAT -->
             <p in:typewriter>
-                Ijin lapor! Ada protes masyarakat! Kamu bakal ngapain? Tenang! Sesuai instruksi pak Jokowi, kami dari kepolisian dan TNI siap mengamankan PSN!
+                Gak usah sosialisasi juga santai sebenarnya. Kalau warga protes, tinggal turunkan polisi atau tentara untuk mengamankan.
                 <br><br>
-                Klik gambar untuk memilih tindakan.
+                Kamu maunya aparat bertindak sejauh mana?
             </p>
 
-        {:else if index == 13} <!-- PRESEDEN LINGKUNGAN -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
+        {:else if index == 12} <!-- JURUS CUCI DOSA 1 -->
+            <!-- <h3>Joko Widodo</h3> -->
+            <!-- <p in:typewriter>
                 Cita-citanya kan mau buat proyek strategis nasional yang berkelanjutan ya? Baiknya pelajari dulu deh preseden proyek-proyek sebelumnya biar tidak melakukan kesalahan yang sama.
-            </p>
+            </p> -->
 
-        {:else if index == 14} <!-- BATALKAN PROYEK -->
-            <h3>Sri Mulyani</h3>
+        {:else if index == 13} <!-- JURUS CUCI DOSA 2 -->
+            <!-- <h3>Sri Mulyani</h3> -->
             <p in:typewriter>
-                Kamu yakin? Pemerintah bisa kasih fasilitas biar proyekmu tetap jalan, lho.
+                Pilih satu jurus yang kamu paling cocok!
             </p>
 
         {:else if index == 15} <!-- TAMBAH LABEL HIJAU -->
@@ -306,7 +252,7 @@
         font-family: "Noto Sans", sans-serif;
         font-size: 1rem;
         line-height: 1.5rem;
-        margin-top:0;
+        /* margin-top:0; */
     }
     .text > h3 {
         margin-left:1rem;

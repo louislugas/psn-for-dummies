@@ -2,17 +2,35 @@
     export let index
 </script>
 <section>
-    <p>Kamu pasti sering dengar soal Proyek Strategis Nasional (PSN). Selama 10 tahun Jokowi jadi presidenmu, ada 200-an PSN yang total nilai investasinya sampai ribuan triliun! Katanya, PSN-PSN ini bakal bantu menyerap jutaan tenaga kerja.</p>
+    {#if index == 1}
+        <p>Anda adalah konglomerat dari sebuah negara adikuasa.</p>
 
-    <p>Pembangunan besar-besaran, ekonomi naik, masa depan cerah. Kedengerannya keren, ya?</p>
+        <p>Saat berkunjung ke Indonesia, Anda mendapat undangan makan malam di rumah seorang pejabat. Dia kenalan lama Anda, punya pengaruh besar dan koneksi luas di pemerintahan.</p>
 
-    <p>Mantan presiden kita satu ini kan selalu ingin semuanya serba cepat. “Kerja, kerja, kerja!” Ini juga yang ngebedain PSN dengan proyek-proyek pembangunan lain. Biar PSN bisa jalan sat-set, pemerintahan Joko Widodo bikin banyak perubahan aturan lewat omnibus law UU Cipta Kerja beserta turunan-turunannya, juga keluarin aturan baru kayak inpres, perpres, hingga peraturan menteri. </p>
+        <p>Saat makan malam, kenalan Anda bertanya, “Kamu tidak tertarik investasi di PSN?”</p>
 
-    <p>
-    Kedengeran ribet? Biar makin gampang dipahami, kita bikin game ini. Project Multatuli ajak kamu jadi pebisnis yang mau dapet proyek PSN. Siap? Ayo main! 🚀
-    </p>
+        <p>
+        Anda balik bertanya, “Apa itu PSN?”
+        </p>
+    {:else if index == 2}
+        <p>Kenalan Anda menjelaskan: PSN adalah Proyek Strategis Nasional.</p>
 
-    <button on:click={() => {index = 2}}>LANJUT</button>
+        <p>PSN ini warisan rezim Joko Widodo. Selama 10 tahun pemerintahannya, Jokowi mengutak-atik banyak aturan biar proyek-proyek berlabel PSN bisa berjalan bebas hambatan. Pokoknya, pemerintah siap mengerahkan seluruh aparatur negara untuk mendukung proyekmu!</p>
+
+        <p>Sekarang, Presiden Prabowo Subianto melanjutkan skema PSN. Per September 2025, sudah ada 250 proyek dan program di daftar PSN.</p>
+
+        <p>Tertarik, Anda bertanya lagi, “Bagaimana caranya saya punya PSN?”</p>
+
+    {:else if index == 12}
+        <p>Anda mulai yakin berinvestasi di PSN. Namun, masih ada yang mengganjal.</p>
+
+        <p>Anda teringat pernah membaca berita soal bagaimana PSN di Indonesia telah memicu kerusakan lingkungan, konflik lahan, dan pelanggaran HAM.</p>
+
+        <p>Anda tanya pendapat kenalan Anda, yang segera membalas, "Gampang."</p>
+
+    {/if}
+
+    <button on:click={() => {index++}}>LANJUT</button>
 </section>
 
 <style>

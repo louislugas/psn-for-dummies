@@ -44,7 +44,7 @@
 		""
 	}
 	<div>
-		<button on:click={() => {index = 13}}>Ya</button>
+		<button on:click={() => {index = 12}}>Ya</button>
 		<button on:click={reset}>Tidak</button>
 	</div>
 	</div>
