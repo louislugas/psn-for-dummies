@@ -1,4 +1,4 @@
-import { e as escape_html, d as current_component, f as bind_props, h as stringify, i as copy_payload, j as assign_payload, k as ensure_array_like, l as add_styles, p as push, c as pop, m as head } from "../../chunks/index2.js";
+import { e as escape_html, d as current_component, f as bind_props, h as copy_payload, i as assign_payload, j as add_styles, k as stringify, l as ensure_array_like, p as push, c as pop, m as head } from "../../chunks/index2.js";
 import { f as fallback } from "../../chunks/utils2.js";
 import "@sveltejs/kit";
 import "@sveltejs/kit/internal";
@@ -30,31 +30,483 @@ function onDestroy(fn) {
   );
   (context.d ??= []).push(fn);
 }
-function Intro($$payload, $$props) {
-  let index = $$props["index"];
-  $$payload.out += `<section class="svelte-1b7ly3a">`;
-  if (index == 1) {
+function Avatar($$payload, $$props) {
+  let index = $$props["index"], area = fallback($$props["area"], 0), time = fallback($$props["time"], 30);
+  if (index >= 1 && index <= 2) {
     $$payload.out += "<!--[-->";
-    $$payload.out += `<p class="svelte-1b7ly3a">Anda adalah konglomerat dari sebuah negara adikuasa.</p> <p class="svelte-1b7ly3a">Saat berkunjung ke Indonesia, Anda mendapat undangan makan malam di rumah seorang pejabat. Dia kenalan lama Anda, punya pengaruh besar dan koneksi luas di pemerintahan.</p> <p class="svelte-1b7ly3a">Saat makan malam, kenalan Anda bertanya, “Kamu tidak tertarik investasi di PSN?”</p> <p class="svelte-1b7ly3a">Anda balik bertanya, “Apa itu PSN?”</p>`;
+    $$payload.out += `<img src="./images/avatar-ngobrol.png" alt="Avatar Ngobrol" class="svelte-9n3i22">`;
   } else {
     $$payload.out += "<!--[!-->";
-    if (index == 2) {
+    if (index >= 3 && index <= 11) {
       $$payload.out += "<!--[-->";
-      $$payload.out += `<p class="svelte-1b7ly3a">Kenalan Anda menjelaskan: PSN adalah Proyek Strategis Nasional.</p> <p class="svelte-1b7ly3a">PSN ini warisan rezim Joko Widodo. Selama 10 tahun pemerintahannya, Jokowi mengutak-atik banyak aturan biar proyek-proyek berlabel PSN bisa berjalan bebas hambatan. Pokoknya, pemerintah siap mengerahkan seluruh aparatur negara untuk mendukung proyekmu!</p> <p class="svelte-1b7ly3a">Sekarang, Presiden Prabowo Subianto melanjutkan skema PSN. Per September 2025, sudah ada 250 proyek dan program di daftar PSN.</p> <p class="svelte-1b7ly3a">Tertarik, Anda bertanya lagi, “Bagaimana caranya saya punya PSN?”</p>`;
+      $$payload.out += `<img src="./images/avatar-pejabat.png" alt="Avatar Pejabat" class="svelte-9n3i22">`;
     } else {
       $$payload.out += "<!--[!-->";
       if (index == 12) {
         $$payload.out += "<!--[-->";
-        $$payload.out += `<p class="svelte-1b7ly3a">Anda mulai yakin berinvestasi di PSN. Namun, masih ada yang mengganjal.</p> <p class="svelte-1b7ly3a">Anda teringat pernah membaca berita soal bagaimana PSN di Indonesia telah memicu kerusakan lingkungan, konflik lahan, dan pelanggaran HAM.</p> <p class="svelte-1b7ly3a">Anda tanya pendapat kenalan Anda, yang segera membalas, "Gampang."</p>`;
+        $$payload.out += `<img src="./images/avatar-ngobrol.png" alt="Avatar Ngobrol" class="svelte-9n3i22">`;
       } else {
         $$payload.out += "<!--[!-->";
+        if (index == 13) {
+          $$payload.out += "<!--[-->";
+          $$payload.out += `<img src="./images/avatar-pejabat.png" alt="Avatar Pejabat" class="svelte-9n3i22">`;
+        } else {
+          $$payload.out += "<!--[!-->";
+        }
+        $$payload.out += `<!--]-->`;
       }
       $$payload.out += `<!--]-->`;
     }
     $$payload.out += `<!--]-->`;
   }
-  $$payload.out += `<!--]--> <button class="svelte-1b7ly3a">LANJUT</button></section>`;
-  bind_props($$props, { index });
+  $$payload.out += `<!--]-->`;
+  bind_props($$props, { index, area, time });
+}
+function Dialog($$payload, $$props) {
+  let index = $$props["index"], area = fallback($$props["area"], 0), match = fallback($$props["match"], false), time = fallback($$props["time"], 30);
+  let visible = false;
+  let next = false;
+  if (index) {
+    visible = false;
+    next = false;
+    setTimeout(
+      () => {
+        visible = true;
+      },
+      100
+    );
+  }
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    $$payload2.out += `<div class="dialog svelte-138o5rk"><div${add_styles({
+      width: () => {
+        {
+          return "100%";
+        }
+      }
+    })} class="text svelte-138o5rk">`;
+    if (index == 3) {
+      $$payload2.out += "<!--[-->";
+      if (visible) {
+        $$payload2.out += "<!--[-->";
+        $$payload2.out += `<p class="svelte-138o5rk">Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?</p>`;
+      } else {
+        $$payload2.out += "<!--[!-->";
+      }
+      $$payload2.out += `<!--]-->`;
+    } else {
+      $$payload2.out += "<!--[!-->";
+      if (index == 4) {
+        $$payload2.out += "<!--[-->";
+        $$payload2.out += `<p class="svelte-138o5rk">Ini kriteria biar proyek kamu masuk daftar PSN. Tapi gak usah diambil pusing. Yang penting poin terakhir aja. Buat kamu, duit Rp500 miliar <em>sih</em> sepele.</p> `;
+        if (next) {
+          $$payload2.out += "<!--[-->";
+          $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+        } else {
+          $$payload2.out += "<!--[!-->";
+        }
+        $$payload2.out += `<!--]-->`;
+      } else {
+        $$payload2.out += "<!--[!-->";
+        if (index == 5) {
+          $$payload2.out += "<!--[-->";
+          $$payload2.out += `<p class="svelte-138o5rk">Yang terakhir dan nggak kalah penting  itu Kriteria Operasional. Terutama duit investasinya, itu yang paling penting.</p> `;
+          if (next) {
+            $$payload2.out += "<!--[-->";
+            $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+          } else {
+            $$payload2.out += "<!--[!-->";
+          }
+          $$payload2.out += `<!--]-->`;
+        } else {
+          $$payload2.out += "<!--[!-->";
+          if (index == 5) {
+            $$payload2.out += "<!--[-->";
+            $$payload2.out += `<p class="svelte-138o5rk">Nah, sekarang kamu harus melengkapi dokumen-dokumen terkait biar proyekmu segera disetujui.</p> <p class="svelte-138o5rk">Geser dokumen di sebelah kiri ke map di sebelah kanan sesuai dengan kategorinya ya!</p> `;
+            if (match) {
+              $$payload2.out += "<!--[-->";
+              $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+            } else {
+              $$payload2.out += "<!--[!-->";
+            }
+            $$payload2.out += `<!--]-->`;
+          } else {
+            $$payload2.out += "<!--[!-->";
+            if (index == 6) {
+              $$payload2.out += "<!--[-->";
+              $$payload2.out += `<p class="svelte-138o5rk">Selamat! Dokumen persyaratanmu sudah lengkap!</p> `;
+              if (next) {
+                $$payload2.out += "<!--[-->";
+                $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+              } else {
+                $$payload2.out += "<!--[!-->";
+              }
+              $$payload2.out += `<!--]-->`;
+            } else {
+              $$payload2.out += "<!--[!-->";
+              if (index == 7) {
+                $$payload2.out += "<!--[-->";
+                $$payload2.out += `<p class="svelte-138o5rk">Sebelumnya kamu sudah memilih sektor, sekarang pilih di mana lokasi proyekmu! Pastikan sektormu sesuai dengan tata ruang lokasinya yaa~ <br> <br> Klik area di peta untuk memilih sektor.</p>`;
+              } else {
+                $$payload2.out += "<!--[!-->";
+                if (index == 8) {
+                  $$payload2.out += "<!--[-->";
+                  $$payload2.out += `<p class="svelte-138o5rk">Kamu mau sosialisasikan gak proyeknya?</p>`;
+                } else {
+                  $$payload2.out += "<!--[!-->";
+                  if (index == 9) {
+                    $$payload2.out += "<!--[-->";
+                    if (time > 10 && time <= 30) {
+                      $$payload2.out += "<!--[-->";
+                      if (visible) {
+                        $$payload2.out += "<!--[-->";
+                        $$payload2.out += `<p class="svelte-138o5rk">Hmm... Coba saya mau lihat bagaimana cara kamu jelaskan pro-kontra proyek ke masyarakat. <br><br> Klik warga yang angkat tangan untuk <em>dengerin</em> aspirasinya.</p>`;
+                      } else {
+                        $$payload2.out += "<!--[!-->";
+                      }
+                      $$payload2.out += `<!--]-->`;
+                    } else {
+                      $$payload2.out += "<!--[!-->";
+                      if (time <= 10 && time > 0) {
+                        $$payload2.out += "<!--[-->";
+                        $$payload2.out += `<p class="svelte-138o5rk">${escape_html(time)} detik lagi!</p>`;
+                      } else {
+                        $$payload2.out += "<!--[!-->";
+                        if (time == 0) {
+                          $$payload2.out += "<!--[-->";
+                          $$payload2.out += `<p class="svelte-138o5rk">Waktu habis!</p>`;
+                        } else {
+                          $$payload2.out += "<!--[!-->";
+                        }
+                        $$payload2.out += `<!--]-->`;
+                      }
+                      $$payload2.out += `<!--]-->`;
+                    }
+                    $$payload2.out += `<!--]-->`;
+                  } else {
+                    $$payload2.out += "<!--[!-->";
+                    if (index == 11) {
+                      $$payload2.out += "<!--[-->";
+                      $$payload2.out += `<p class="svelte-138o5rk">Gak usah sosialisasi juga santai sebenarnya. Kalau warga protes, tinggal turunkan polisi atau tentara untuk mengamankan. <br><br> Kamu maunya aparat bertindak sejauh mana?</p>`;
+                    } else {
+                      $$payload2.out += "<!--[!-->";
+                      if (index == 12) {
+                        $$payload2.out += "<!--[-->";
+                      } else {
+                        $$payload2.out += "<!--[!-->";
+                        if (index == 13) {
+                          $$payload2.out += "<!--[-->";
+                          $$payload2.out += `<p class="svelte-138o5rk">Pilih satu jurus yang kamu paling cocok!</p>`;
+                        } else {
+                          $$payload2.out += "<!--[!-->";
+                          if (index == 15) {
+                            $$payload2.out += "<!--[-->";
+                            $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">Nah gitu dong, tinggal tambah label saja kan gampang.</p> `;
+                            if (next) {
+                              $$payload2.out += "<!--[-->";
+                              $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+                            } else {
+                              $$payload2.out += "<!--[!-->";
+                            }
+                            $$payload2.out += `<!--]-->`;
+                          } else {
+                            $$payload2.out += "<!--[!-->";
+                            if (index == 16) {
+                              $$payload2.out += "<!--[-->";
+                              $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">Akhirnya proyekmu selesai! Bener nggak proyekmu udah ciptain lapangan kerja?</p>`;
+                            } else {
+                              $$payload2.out += "<!--[!-->";
+                              if (index == 17) {
+                                $$payload2.out += "<!--[-->";
+                                $$payload2.out += `<h3 class="svelte-138o5rk">Airlangga Hartanto</h3> <p class="svelte-138o5rk">PSN + hilirisasi = kunci kekuatan ekonomi Indonesia.</p> `;
+                                if (next) {
+                                  $$payload2.out += "<!--[-->";
+                                  $$payload2.out += `<button class="svelte-138o5rk">Tapi...</button>`;
+                                } else {
+                                  $$payload2.out += "<!--[!-->";
+                                }
+                                $$payload2.out += `<!--]-->`;
+                              } else {
+                                $$payload2.out += "<!--[!-->";
+                                if (index == 18) {
+                                  $$payload2.out += "<!--[-->";
+                                  $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">...</p> `;
+                                  if (next) {
+                                    $$payload2.out += "<!--[-->";
+                                    $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+                                  } else {
+                                    $$payload2.out += "<!--[!-->";
+                                  }
+                                  $$payload2.out += `<!--]-->`;
+                                } else {
+                                  $$payload2.out += "<!--[!-->";
+                                  if (index == 19) {
+                                    $$payload2.out += "<!--[-->";
+                                    $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">...</p> `;
+                                    if (next) {
+                                      $$payload2.out += "<!--[-->";
+                                      $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+                                    } else {
+                                      $$payload2.out += "<!--[!-->";
+                                    }
+                                    $$payload2.out += `<!--]-->`;
+                                  } else {
+                                    $$payload2.out += "<!--[!-->";
+                                    if (index == 20) {
+                                      $$payload2.out += "<!--[-->";
+                                      $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">...</p> `;
+                                      if (next) {
+                                        $$payload2.out += "<!--[-->";
+                                        $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+                                      } else {
+                                        $$payload2.out += "<!--[!-->";
+                                      }
+                                      $$payload2.out += `<!--]-->`;
+                                    } else {
+                                      $$payload2.out += "<!--[!-->";
+                                      if (index == 21) {
+                                        $$payload2.out += "<!--[-->";
+                                        $$payload2.out += `<h3 class="svelte-138o5rk">Prabowo Subianto</h3> <p class="svelte-138o5rk">Prabowo-Gibran punya program yang sangat jelas, yaitu melanjutkan semua programnya Pak Jokowi.</p> `;
+                                        if (next) {
+                                          $$payload2.out += "<!--[-->";
+                                          $$payload2.out += `<button class="svelte-138o5rk">Lanjut</button>`;
+                                        } else {
+                                          $$payload2.out += "<!--[!-->";
+                                        }
+                                        $$payload2.out += `<!--]-->`;
+                                      } else {
+                                        $$payload2.out += "<!--[!-->";
+                                        if (index == 22) {
+                                          $$payload2.out += "<!--[-->";
+                                          $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">Akhirnya proyekmu selesai juga, gimana pelayanan kami? oke kan? Ini terlampir resume proyekmu ya. Semoga berhasil dan sukses terus, siapa tau bisa bikin proyek strategis nasional lagi.</p>`;
+                                        } else {
+                                          $$payload2.out += "<!--[!-->";
+                                          if (index == 23) {
+                                            $$payload2.out += "<!--[-->";
+                                            $$payload2.out += `<h3 class="svelte-138o5rk">Luhut Binsar Panjaitan</h3> <p class="svelte-138o5rk">Kelamaan! Status PSN-mu kami cabut!</p>`;
+                                          } else {
+                                            $$payload2.out += "<!--[!-->";
+                                            if (index == 24) {
+                                              $$payload2.out += "<!--[-->";
+                                              $$payload2.out += `<h3 class="svelte-138o5rk">Joko Widodo</h3> <p class="svelte-138o5rk">Status PSN-mu kami batalkan!</p>`;
+                                            } else {
+                                              $$payload2.out += "<!--[!-->";
+                                            }
+                                            $$payload2.out += `<!--]-->`;
+                                          }
+                                          $$payload2.out += `<!--]-->`;
+                                        }
+                                        $$payload2.out += `<!--]-->`;
+                                      }
+                                      $$payload2.out += `<!--]-->`;
+                                    }
+                                    $$payload2.out += `<!--]-->`;
+                                  }
+                                  $$payload2.out += `<!--]-->`;
+                                }
+                                $$payload2.out += `<!--]-->`;
+                              }
+                              $$payload2.out += `<!--]-->`;
+                            }
+                            $$payload2.out += `<!--]-->`;
+                          }
+                          $$payload2.out += `<!--]-->`;
+                        }
+                        $$payload2.out += `<!--]-->`;
+                      }
+                      $$payload2.out += `<!--]-->`;
+                    }
+                    $$payload2.out += `<!--]-->`;
+                  }
+                  $$payload2.out += `<!--]-->`;
+                }
+                $$payload2.out += `<!--]-->`;
+              }
+              $$payload2.out += `<!--]-->`;
+            }
+            $$payload2.out += `<!--]-->`;
+          }
+          $$payload2.out += `<!--]-->`;
+        }
+        $$payload2.out += `<!--]-->`;
+      }
+      $$payload2.out += `<!--]-->`;
+    }
+    $$payload2.out += `<!--]--></div> `;
+    if (index <= 13) {
+      $$payload2.out += "<!--[-->";
+      $$payload2.out += `<div${add_styles({
+        width: index == 1 || index == 2 || index == 12 ? "70%" : "40%"
+      })} class="avatar svelte-138o5rk">`;
+      Avatar($$payload2, {
+        get index() {
+          return index;
+        },
+        set index($$value) {
+          index = $$value;
+          $$settled = false;
+        },
+        get area() {
+          return area;
+        },
+        set area($$value) {
+          area = $$value;
+          $$settled = false;
+        },
+        get time() {
+          return time;
+        },
+        set time($$value) {
+          time = $$value;
+          $$settled = false;
+        }
+      });
+      $$payload2.out += `<!----></div>`;
+    } else {
+      $$payload2.out += "<!--[!-->";
+    }
+    $$payload2.out += `<!--]--></div>`;
+  }
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
+  bind_props($$props, { index, area, match, time });
+}
+function Intro($$payload, $$props) {
+  let index = $$props["index"], next = fallback($$props["next"], false);
+  let visible = false;
+  let text = [
+    {
+      t: "Anda adalah konglomerat dari sebuah negara adikuasa."
+    },
+    {
+      t: "Saat berkunjung ke Indonesia, Anda mendapat undangan makan malam di rumah seorang pejabat. Dia kenalan lama Anda, punya pengaruh besar dan koneksi luas di pemerintahan."
+    },
+    { t: "Saat makan malam, kenalan Anda bertanya," },
+    { t: "Kamu tidak tertarik investasi di PSN?" },
+    { t: "Anda balik bertanya" },
+    { t: "“Apa itu PSN?”" }
+  ];
+  let text2 = [
+    { t: "Kenalan Anda menjelaskan" },
+    { t: "PSN adalah Proyek Strategis Nasional" },
+    {
+      t: "PSN ini warisan rezim Joko Widodo. Selama 10 tahun pemerintahannya, Jokowi mengutak-atik banyak aturan biar proyek-proyek berlabel PSN bisa berjalan bebas hambatan. Pokoknya, pemerintah siap mengerahkan seluruh aparatur negara untuk mendukung proyekmu!"
+    },
+    {
+      t: "Sekarang, Presiden Prabowo Subianto melanjutkan skema PSN. Per September 2025, sudah ada 250 proyek dan program di daftar PSN."
+    },
+    { t: "Tertarik, Anda bertanya lagi," },
+    { t: "Bagaimana caranya saya punya PSN?" }
+  ];
+  let text3 = [
+    {
+      t: "Anda mulai yakin berinvestasi di PSN. Namun, masih ada yang mengganjal."
+    },
+    {
+      t: "Anda teringat pernah membaca berita soal bagaimana PSN di Indonesia telah memicu kerusakan lingkungan, konflik lahan, dan pelanggaran HAM."
+    },
+    {
+      t: "Anda tanya pendapat kenalan Anda, yang segera membalas,"
+    },
+    { t: "Gampang" }
+  ];
+  if (index) {
+    next = false;
+    visible = false;
+    setTimeout(
+      () => {
+        visible = true;
+      },
+      100
+    );
+  }
+  let $$settled = true;
+  let $$inner_payload;
+  function $$render_inner($$payload2) {
+    $$payload2.out += `<section class="svelte-vri1h6">`;
+    if (index == 1) {
+      $$payload2.out += "<!--[-->";
+      if (visible) {
+        $$payload2.out += "<!--[-->";
+        $$payload2.out += `<p class="svelte-vri1h6">${escape_html(text[0].t)}</p> <p class="svelte-vri1h6">${escape_html(text[1].t)}</p> <p class="svelte-vri1h6">${escape_html(text[2].t)}</p> <div class="dialog-container left svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text[3].t)}</p></div> <p class="svelte-vri1h6">${escape_html(text[4].t)}</p> <div class="dialog-container right svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text[5].t)}</p></div>`;
+      } else {
+        $$payload2.out += "<!--[!-->";
+      }
+      $$payload2.out += `<!--]--> `;
+      if (next) {
+        $$payload2.out += "<!--[-->";
+        $$payload2.out += `<button class="svelte-vri1h6">LANJUT</button>`;
+      } else {
+        $$payload2.out += "<!--[!-->";
+      }
+      $$payload2.out += `<!--]-->`;
+    } else {
+      $$payload2.out += "<!--[!-->";
+      if (index == 2) {
+        $$payload2.out += "<!--[-->";
+        if (visible) {
+          $$payload2.out += "<!--[-->";
+          $$payload2.out += `<p class="svelte-vri1h6">${escape_html(text2[0].t)}</p> <div class="dialog-container left svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text2[1].t)}</p></div> <div class="dialog-container left svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text2[2].t)}</p></div> <div class="dialog-container left svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text2[3].t)}</p></div> <p class="svelte-vri1h6">${escape_html(text2[4].t)}</p> <div class="dialog-container right svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text2[5].t)}</p></div>`;
+        } else {
+          $$payload2.out += "<!--[!-->";
+        }
+        $$payload2.out += `<!--]--> `;
+        if (next) {
+          $$payload2.out += "<!--[-->";
+          $$payload2.out += `<button class="svelte-vri1h6">LANJUT</button>`;
+        } else {
+          $$payload2.out += "<!--[!-->";
+        }
+        $$payload2.out += `<!--]-->`;
+      } else {
+        $$payload2.out += "<!--[!-->";
+        if (index == 12) {
+          $$payload2.out += "<!--[-->";
+          if (visible) {
+            $$payload2.out += "<!--[-->";
+            $$payload2.out += `<p class="svelte-vri1h6">${escape_html(text3[0].t)}</p> <p class="svelte-vri1h6">${escape_html(text3[1].t)}</p> <p class="svelte-vri1h6">${escape_html(text3[2].t)}</p> <div class="dialog-container left svelte-vri1h6"><p class="dialog svelte-vri1h6">${escape_html(text3[3].t)}</p></div>`;
+          } else {
+            $$payload2.out += "<!--[!-->";
+          }
+          $$payload2.out += `<!--]--> `;
+          if (next) {
+            $$payload2.out += "<!--[-->";
+            $$payload2.out += `<button class="svelte-vri1h6">LANJUT</button>`;
+          } else {
+            $$payload2.out += "<!--[!-->";
+          }
+          $$payload2.out += `<!--]-->`;
+        } else {
+          $$payload2.out += "<!--[!-->";
+        }
+        $$payload2.out += `<!--]-->`;
+      }
+      $$payload2.out += `<!--]-->`;
+    }
+    $$payload2.out += `<!--]--> `;
+    Dialog($$payload2, {
+      get index() {
+        return index;
+      },
+      set index($$value) {
+        index = $$value;
+        $$settled = false;
+      }
+    });
+    $$payload2.out += `<!----></section>`;
+  }
+  do {
+    $$settled = true;
+    $$inner_payload = copy_payload($$payload);
+    $$render_inner($$inner_payload);
+  } while (!$$settled);
+  assign_payload($$payload, $$inner_payload);
+  bind_props($$props, { index, next });
 }
 const button = "/_app/immutable/assets/psn-audio-button.Bqo91Nrs.mp3";
 function ButtonAudio($$payload, $$props) {
@@ -70,29 +522,29 @@ function Sector($$payload, $$props) {
   let index = $$props["index"], sector = $$props["sector"], jurus = $$props["jurus"];
   let play = false;
   let selected = false;
-  $$payload.out += `<section class="svelte-vvf0cl">`;
+  $$payload.out += `<section class="svelte-zf0t76">`;
   if (index == 3) {
     $$payload.out += "<!--[-->";
-    $$payload.out += `<h2 class="svelte-vvf0cl">Pilih sektor usahamu:</h2> <div class="svelte-vvf0cl"><button${attr("class", `sector svelte-vvf0cl ${stringify([
+    $$payload.out += `<h2 class="svelte-zf0t76">Pilih sektor usahamu:</h2> <div class="svelte-zf0t76"><button${attr("class", `sector svelte-zf0t76 ${stringify([
       sector == "bendungan" && selected ? "selected" : ""
-    ].filter(Boolean).join(" "))}`)} data-value="bendungan">Bendungan</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+    ].filter(Boolean).join(" "))}`)} data-value="bendungan">Bendungan</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
       sector == "jalantol" && selected ? "selected" : ""
-    ].filter(Boolean).join(" "))}`)} data-value="jalantol">Jalan Tol</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([sector == "kereta" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="kereta">Kereta Api</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+    ].filter(Boolean).join(" "))}`)} data-value="jalantol">Jalan Tol</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([sector == "kereta" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="kereta">Kereta Api</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
       sector == "bandara" && selected ? "selected" : ""
-    ].filter(Boolean).join(" "))}`)} data-value="bandara">Bandara/Pelabuhan</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([sector == "energi" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="energi">Infrastruktur Energi</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+    ].filter(Boolean).join(" "))}`)} data-value="bandara">Bandara/ Pelabuhan</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([sector == "energi" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="energi">Infrastruktur Energi</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
       sector == "smelter" && selected ? "selected" : ""
-    ].filter(Boolean).join(" "))}`)} data-value="smelter">Smelter</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([sector == "kie" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="kie">Kawasan Industri/ Ekonomi</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([sector == "pangan" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="pangan">Lumbung Pangan</button></div> <button class="next svelte-vvf0cl"${attr("disabled", !selected, true)}>Lanjut</button>`;
+    ].filter(Boolean).join(" "))}`)} data-value="smelter">Smelter</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([sector == "kie" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="kie">Kawasan Industri/ Ekonomi</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([sector == "pangan" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="pangan">Lumbung Pangan</button></div> <button class="next svelte-zf0t76"${attr("disabled", !selected, true)}>Lanjut</button>`;
   } else {
     $$payload.out += "<!--[!-->";
     if (index == 13) {
       $$payload.out += "<!--[-->";
-      $$payload.out += `<h2 class="svelte-vvf0cl">Pilih satu jurus yang kamu paling cocok!</h2> <div class="svelte-vvf0cl"><button${attr("class", `sector svelte-vvf0cl ${stringify([jurus == "hijau" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="hijau">Beri proyekmu label "hijau"</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+      $$payload.out += `<h2 class="svelte-zf0t76">Pilih satu jurus yang kamu paling cocok!</h2> <div class="svelte-zf0t76"><button${attr("class", `sector svelte-zf0t76 ${stringify([jurus == "hijau" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="hijau">Beri proyekmu label "hijau"</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
         jurus == "nasionalisme" && selected ? "selected" : ""
-      ].filter(Boolean).join(" "))}`)} data-value="nasionalisme">Gaungkan narasi nasionalisme dan kedaulatan</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([jurus == "csr" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="csr">CSR: bagi sembako, bangun posyandu, tanam pohon, dll</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+      ].filter(Boolean).join(" "))}`)} data-value="nasionalisme">Gaungkan narasi nasionalisme dan kedaulatan</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([jurus == "csr" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="csr">CSR: bagi sembako, bangun posyandu, tanam pohon, dll</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
         jurus == "peneliti" && selected ? "selected" : ""
-      ].filter(Boolean).join(" "))}`)} data-value="peneliti">Bayar peneliti abal-abal bikin kajian pesanan</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([
+      ].filter(Boolean).join(" "))}`)} data-value="peneliti">Bayar peneliti abal-abal bikin kajian pesanan</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([
         jurus == "influencer" && selected ? "selected" : ""
-      ].filter(Boolean).join(" "))}`)} data-value="influencer">Bayar influencer untuk promosikan proyek</button> <button${attr("class", `sector svelte-vvf0cl ${stringify([jurus == "iklan" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="iklan">Pasang iklan besar di media agar berita proyekmu positif</button></div> <button class="next svelte-vvf0cl"${attr("disabled", !selected, true)}>Lanjut</button>`;
+      ].filter(Boolean).join(" "))}`)} data-value="influencer">Bayar influencer untuk promosikan proyek</button> <button${attr("class", `sector svelte-zf0t76 ${stringify([jurus == "iklan" && selected ? "selected" : ""].filter(Boolean).join(" "))}`)} data-value="iklan">Pasang iklan besar di media agar berita proyekmu positif</button></div> <button class="next svelte-zf0t76"${attr("disabled", !selected, true)}>Lanjut</button>`;
     } else {
       $$payload.out += "<!--[!-->";
     }
@@ -735,7 +1187,7 @@ function Resume($$payload, $$props) {
   } else if (state == 3) {
     p = "Menangkap Jurnalis";
   }
-  $$payload.out += `<section class="svelte-1db59jf"><h2 class="svelte-1db59jf">Resume Proyek</h2> <div class="svelte-1db59jf"><div class="resume svelte-1db59jf"><p class="head svelte-1db59jf">Proyek:</p> <p class="content svelte-1db59jf">${escape_html(s)}</p></div> <div class="resume svelte-1db59jf"><p class="head svelte-1db59jf">Perizinan:</p> <p class="content svelte-1db59jf">Lengkap</p></div> <div class="resume svelte-1db59jf"><p class="head svelte-1db59jf">Menggusur Lahan:</p> <p class="content svelte-1db59jf">${escape_html(a)}</p></div> <div class="resume svelte-1db59jf"><p class="head svelte-1db59jf">Metode Penanganan Massa</p> <p class="content svelte-1db59jf">${escape_html(p)}</p></div> <div class="resume svelte-1db59jf"><p class="head svelte-1db59jf">Jurus Cuci Dosa:</p> <p class="content svelte-1db59jf">${escape_html(j)}</p></div></div> <div class="button-container svelte-1db59jf"><button class="svelte-1db59jf">Selesai</button> <a class="button svelte-1db59jf" href="https://projectmultatuli.org/proyek-sengsara-nasional/">Baca Serial PSN</a></div> <div class="congratulations svelte-1db59jf"><div class="left svelte-1db59jf"></div> <div class="center svelte-1db59jf"><p class="svelte-1db59jf">Kamu sudah siap jadi investor PSN!</p></div> <div class="right svelte-1db59jf"></div></div></section>`;
+  $$payload.out += `<section class="svelte-psmyld"><h2 class="svelte-psmyld">Resume Proyek</h2> <div class="svelte-psmyld"><div class="resume svelte-psmyld"><p class="head svelte-psmyld">Proyek:</p> <p class="content svelte-psmyld">${escape_html(s)}</p></div> <div class="resume svelte-psmyld"><p class="head svelte-psmyld">Perizinan:</p> <p class="content svelte-psmyld">Lengkap</p></div> <div class="resume svelte-psmyld"><p class="head svelte-psmyld">Menggusur Lahan:</p> <p class="content svelte-psmyld">${escape_html(a)}</p></div> <div class="resume svelte-psmyld"><p class="head svelte-psmyld">Metode Penanganan Massa</p> <p class="content svelte-psmyld">${escape_html(p)}</p></div> <div class="resume svelte-psmyld"><p class="head svelte-psmyld">Jurus Cuci Dosa:</p> <p class="content svelte-psmyld">${escape_html(j)}</p></div></div> <div class="button-container svelte-psmyld"><button class="svelte-psmyld">Selesai</button> <a class="button svelte-psmyld" href="https://projectmultatuli.org/proyek-sengsara-nasional/">Baca Serial PSN</a></div> <div class="divider svelte-psmyld"></div> <div class="congratulations svelte-psmyld"><div class="left svelte-psmyld"><img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies" class="svelte-psmyld"></div> <div class="center svelte-psmyld"><p class="svelte-psmyld">Kamu sudah siap jadi investor PSN!</p></div> <div class="right svelte-psmyld"><img src="./images/joko-widodo.png" alt="Joko Widodo - PSN for Dummies" class="svelte-psmyld"></div></div></section>`;
   bind_props($$props, { index, sector, area, state, jurus });
 }
 function Infog($$payload, $$props) {
@@ -906,442 +1358,13 @@ function GameOver($$payload, $$props) {
   $$payload.out += `<!--]--></section>`;
   bind_props($$props, { index });
 }
-function Avatar($$payload, $$props) {
-  let index = $$props["index"], area = fallback($$props["area"], 0), time = fallback($$props["time"], 30);
-  if (index >= 2 && index <= 8) {
-    $$payload.out += "<!--[-->";
-    $$payload.out += `<img${attr("src", `./images/joko-widodo-${stringify(index == 3 || index == 4 || index == 6 || index == 8 ? "3" : "1")}.png`)} alt="Avatar Jokowi" class="svelte-9n3i22">`;
-  } else {
-    $$payload.out += "<!--[!-->";
-    if (index == 9) {
-      $$payload.out += "<!--[-->";
-      if (area == 0) {
-        $$payload.out += "<!--[-->";
-        $$payload.out += `<img src="./images/siti-nurbaya-bakar.png" alt="Avatar Siti Nurbaya Bakar" class="svelte-9n3i22">`;
-      } else {
-        $$payload.out += "<!--[!-->";
-        if (area >= 1 && area <= 2) {
-          $$payload.out += "<!--[-->";
-          $$payload.out += `<img src="./images/agus-harimurti-yudhoyono.png" alt="Avatar Agus Harimurti Yudhoyono" class="svelte-9n3i22">`;
-        } else {
-          $$payload.out += "<!--[!-->";
-          if (area == 3) {
-            $$payload.out += "<!--[-->";
-            $$payload.out += `<img src="./images/listyo-sigit-prabowo.png" alt="Avatar Listyo Sigit Prabowo" class="svelte-9n3i22">`;
-          } else {
-            $$payload.out += "<!--[!-->";
-          }
-          $$payload.out += `<!--]-->`;
-        }
-        $$payload.out += `<!--]-->`;
-      }
-      $$payload.out += `<!--]-->`;
-    } else {
-      $$payload.out += "<!--[!-->";
-      if (index == 10) {
-        $$payload.out += "<!--[-->";
-        $$payload.out += `<img src="./images/joko-widodo-1.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-      } else {
-        $$payload.out += "<!--[!-->";
-        if (index == 11) {
-          $$payload.out += "<!--[-->";
-          $$payload.out += `<img${attr("src", `./images/luhut-binsar-panjaitan-${stringify(time > 10 ? "1" : "2")}.png`)} alt="Avatar Luhut" class="svelte-9n3i22">`;
-        } else {
-          $$payload.out += "<!--[!-->";
-          if (index == 12) {
-            $$payload.out += "<!--[-->";
-            $$payload.out += `<img src="./images/listyo-sigit-prabowo.png" alt="Avatar Listyo Sigit Prabowo" class="svelte-9n3i22">`;
-          } else {
-            $$payload.out += "<!--[!-->";
-            if (index == 13) {
-              $$payload.out += "<!--[-->";
-              $$payload.out += `<img src="./images/joko-widodo-1.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-            } else {
-              $$payload.out += "<!--[!-->";
-              if (index == 14) {
-                $$payload.out += "<!--[-->";
-                $$payload.out += `<img src="./images/sri-mulyani-indrawati.png" alt="Avatar Sri Mulyani" class="svelte-9n3i22">`;
-              } else {
-                $$payload.out += "<!--[!-->";
-                if (index == 15) {
-                  $$payload.out += "<!--[-->";
-                  $$payload.out += `<img src="./images/joko-widodo-1.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-                } else {
-                  $$payload.out += "<!--[!-->";
-                  if (index == 16) {
-                    $$payload.out += "<!--[-->";
-                    $$payload.out += `<img src="./images/joko-widodo-1.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-                  } else {
-                    $$payload.out += "<!--[!-->";
-                    if (index == 17) {
-                      $$payload.out += "<!--[-->";
-                      $$payload.out += `<img src="./images/airlangga-hartanto.png" alt="Avatar Airlangga Hartanto" class="svelte-9n3i22">`;
-                    } else {
-                      $$payload.out += "<!--[!-->";
-                      if (index >= 18 && index <= 20) {
-                        $$payload.out += "<!--[-->";
-                        $$payload.out += `<img src="./images/joko-widodo-4.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-                      } else {
-                        $$payload.out += "<!--[!-->";
-                        if (index == 21) {
-                          $$payload.out += "<!--[-->";
-                          $$payload.out += `<img src="./images/prabowo-subianto.png" alt="Avatar Prabowo Subianto" class="svelte-9n3i22">`;
-                        } else {
-                          $$payload.out += "<!--[!-->";
-                          if (index == 22) {
-                            $$payload.out += "<!--[-->";
-                            $$payload.out += `<img src="./images/joko-widodo-1.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-                          } else {
-                            $$payload.out += "<!--[!-->";
-                            if (index == 23) {
-                              $$payload.out += "<!--[-->";
-                              $$payload.out += `<img src="./images/luhut-binsar-panjaitan-3.png" alt="Avatar Luhut Binsar Panjaitan" class="svelte-9n3i22">`;
-                            } else {
-                              $$payload.out += "<!--[!-->";
-                              if (index == 24) {
-                                $$payload.out += "<!--[-->";
-                                $$payload.out += `<img src="./images/joko-widodo-2.png" alt="Avatar Jokowi" class="svelte-9n3i22">`;
-                              } else {
-                                $$payload.out += "<!--[!-->";
-                              }
-                              $$payload.out += `<!--]-->`;
-                            }
-                            $$payload.out += `<!--]-->`;
-                          }
-                          $$payload.out += `<!--]-->`;
-                        }
-                        $$payload.out += `<!--]-->`;
-                      }
-                      $$payload.out += `<!--]-->`;
-                    }
-                    $$payload.out += `<!--]-->`;
-                  }
-                  $$payload.out += `<!--]-->`;
-                }
-                $$payload.out += `<!--]-->`;
-              }
-              $$payload.out += `<!--]-->`;
-            }
-            $$payload.out += `<!--]-->`;
-          }
-          $$payload.out += `<!--]-->`;
-        }
-        $$payload.out += `<!--]-->`;
-      }
-      $$payload.out += `<!--]-->`;
-    }
-    $$payload.out += `<!--]-->`;
-  }
-  $$payload.out += `<!--]-->`;
-  bind_props($$props, { index, area, time });
-}
-function Dialog($$payload, $$props) {
-  let index = $$props["index"], area = fallback($$props["area"], 0), match = fallback($$props["match"], false), time = fallback($$props["time"], 30);
-  let visible = false;
-  let next = false;
-  if (index) {
-    visible = false;
-    next = false;
-    setTimeout(
-      () => {
-        visible = true;
-      },
-      500
-    );
-  }
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out += `<div class="dialog svelte-maapth"><div class="text svelte-maapth">`;
-    if (index == 3) {
-      $$payload2.out += "<!--[-->";
-      $$payload2.out += `<p class="svelte-maapth">Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?</p> `;
-      if (next) {
-        $$payload2.out += "<!--[-->";
-        $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-      } else {
-        $$payload2.out += "<!--[!-->";
-      }
-      $$payload2.out += `<!--]-->`;
-    } else {
-      $$payload2.out += "<!--[!-->";
-      if (index == 4) {
-        $$payload2.out += "<!--[-->";
-        $$payload2.out += `<p class="svelte-maapth">Ini kriteria biar proyek kamu masuk daftar PSN. Tapi gak usah diambil pusing. Yang penting poin terakhir aja. Buat kamu, duit Rp500 miliar <em>sih</em> sepele.</p> `;
-        if (next) {
-          $$payload2.out += "<!--[-->";
-          $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-        } else {
-          $$payload2.out += "<!--[!-->";
-        }
-        $$payload2.out += `<!--]-->`;
-      } else {
-        $$payload2.out += "<!--[!-->";
-        if (index == 5) {
-          $$payload2.out += "<!--[-->";
-          $$payload2.out += `<p class="svelte-maapth">Yang terakhir dan nggak kalah penting  itu Kriteria Operasional. Terutama duit investasinya, itu yang paling penting.</p> `;
-          if (next) {
-            $$payload2.out += "<!--[-->";
-            $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-          } else {
-            $$payload2.out += "<!--[!-->";
-          }
-          $$payload2.out += `<!--]-->`;
-        } else {
-          $$payload2.out += "<!--[!-->";
-          if (index == 5) {
-            $$payload2.out += "<!--[-->";
-            $$payload2.out += `<p class="svelte-maapth">Nah, sekarang kamu harus melengkapi dokumen-dokumen terkait biar proyekmu segera disetujui.</p> <p class="svelte-maapth">Geser dokumen di sebelah kiri ke map di sebelah kanan sesuai dengan kategorinya ya!</p> `;
-            if (match) {
-              $$payload2.out += "<!--[-->";
-              $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-            } else {
-              $$payload2.out += "<!--[!-->";
-            }
-            $$payload2.out += `<!--]-->`;
-          } else {
-            $$payload2.out += "<!--[!-->";
-            if (index == 6) {
-              $$payload2.out += "<!--[-->";
-              $$payload2.out += `<p class="svelte-maapth">Selamat! Dokumen persyaratanmu sudah lengkap!</p> `;
-              if (next) {
-                $$payload2.out += "<!--[-->";
-                $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-              } else {
-                $$payload2.out += "<!--[!-->";
-              }
-              $$payload2.out += `<!--]-->`;
-            } else {
-              $$payload2.out += "<!--[!-->";
-              if (index == 7) {
-                $$payload2.out += "<!--[-->";
-                $$payload2.out += `<p class="svelte-maapth">Sebelumnya kamu sudah memilih sektor, sekarang pilih di mana lokasi proyekmu! Pastikan sektormu sesuai dengan tata ruang lokasinya yaa~ <br> <br> Klik area di peta untuk memilih sektor.</p>`;
-              } else {
-                $$payload2.out += "<!--[!-->";
-                if (index == 8) {
-                  $$payload2.out += "<!--[-->";
-                  $$payload2.out += `<p class="svelte-maapth">Kamu mau sosialisasikan gak proyeknya?</p>`;
-                } else {
-                  $$payload2.out += "<!--[!-->";
-                  if (index == 9) {
-                    $$payload2.out += "<!--[-->";
-                    if (time > 10 && time <= 30) {
-                      $$payload2.out += "<!--[-->";
-                      if (visible) {
-                        $$payload2.out += "<!--[-->";
-                        $$payload2.out += `<p class="svelte-maapth">Hmm... Coba saya mau lihat bagaimana cara kamu jelaskan pro-kontra proyek ke masyarakat. <br><br> Klik warga yang angkat tangan untuk <em>dengerin</em> aspirasinya.</p>`;
-                      } else {
-                        $$payload2.out += "<!--[!-->";
-                      }
-                      $$payload2.out += `<!--]-->`;
-                    } else {
-                      $$payload2.out += "<!--[!-->";
-                      if (time <= 10 && time > 0) {
-                        $$payload2.out += "<!--[-->";
-                        $$payload2.out += `<p class="svelte-maapth">${escape_html(time)} detik lagi!</p>`;
-                      } else {
-                        $$payload2.out += "<!--[!-->";
-                        if (time == 0) {
-                          $$payload2.out += "<!--[-->";
-                          $$payload2.out += `<p class="svelte-maapth">Waktu habis!</p>`;
-                        } else {
-                          $$payload2.out += "<!--[!-->";
-                        }
-                        $$payload2.out += `<!--]-->`;
-                      }
-                      $$payload2.out += `<!--]-->`;
-                    }
-                    $$payload2.out += `<!--]-->`;
-                  } else {
-                    $$payload2.out += "<!--[!-->";
-                    if (index == 11) {
-                      $$payload2.out += "<!--[-->";
-                      $$payload2.out += `<p class="svelte-maapth">Gak usah sosialisasi juga santai sebenarnya. Kalau warga protes, tinggal turunkan polisi atau tentara untuk mengamankan. <br><br> Kamu maunya aparat bertindak sejauh mana?</p>`;
-                    } else {
-                      $$payload2.out += "<!--[!-->";
-                      if (index == 12) {
-                        $$payload2.out += "<!--[-->";
-                      } else {
-                        $$payload2.out += "<!--[!-->";
-                        if (index == 13) {
-                          $$payload2.out += "<!--[-->";
-                          $$payload2.out += `<p class="svelte-maapth">Pilih satu jurus yang kamu paling cocok!</p>`;
-                        } else {
-                          $$payload2.out += "<!--[!-->";
-                          if (index == 15) {
-                            $$payload2.out += "<!--[-->";
-                            $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">Nah gitu dong, tinggal tambah label saja kan gampang.</p> `;
-                            if (next) {
-                              $$payload2.out += "<!--[-->";
-                              $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-                            } else {
-                              $$payload2.out += "<!--[!-->";
-                            }
-                            $$payload2.out += `<!--]-->`;
-                          } else {
-                            $$payload2.out += "<!--[!-->";
-                            if (index == 16) {
-                              $$payload2.out += "<!--[-->";
-                              $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">Akhirnya proyekmu selesai! Bener nggak proyekmu udah ciptain lapangan kerja?</p>`;
-                            } else {
-                              $$payload2.out += "<!--[!-->";
-                              if (index == 17) {
-                                $$payload2.out += "<!--[-->";
-                                $$payload2.out += `<h3 class="svelte-maapth">Airlangga Hartanto</h3> <p class="svelte-maapth">PSN + hilirisasi = kunci kekuatan ekonomi Indonesia.</p> `;
-                                if (next) {
-                                  $$payload2.out += "<!--[-->";
-                                  $$payload2.out += `<button class="svelte-maapth">Tapi...</button>`;
-                                } else {
-                                  $$payload2.out += "<!--[!-->";
-                                }
-                                $$payload2.out += `<!--]-->`;
-                              } else {
-                                $$payload2.out += "<!--[!-->";
-                                if (index == 18) {
-                                  $$payload2.out += "<!--[-->";
-                                  $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">...</p> `;
-                                  if (next) {
-                                    $$payload2.out += "<!--[-->";
-                                    $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-                                  } else {
-                                    $$payload2.out += "<!--[!-->";
-                                  }
-                                  $$payload2.out += `<!--]-->`;
-                                } else {
-                                  $$payload2.out += "<!--[!-->";
-                                  if (index == 19) {
-                                    $$payload2.out += "<!--[-->";
-                                    $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">...</p> `;
-                                    if (next) {
-                                      $$payload2.out += "<!--[-->";
-                                      $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-                                    } else {
-                                      $$payload2.out += "<!--[!-->";
-                                    }
-                                    $$payload2.out += `<!--]-->`;
-                                  } else {
-                                    $$payload2.out += "<!--[!-->";
-                                    if (index == 20) {
-                                      $$payload2.out += "<!--[-->";
-                                      $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">...</p> `;
-                                      if (next) {
-                                        $$payload2.out += "<!--[-->";
-                                        $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-                                      } else {
-                                        $$payload2.out += "<!--[!-->";
-                                      }
-                                      $$payload2.out += `<!--]-->`;
-                                    } else {
-                                      $$payload2.out += "<!--[!-->";
-                                      if (index == 21) {
-                                        $$payload2.out += "<!--[-->";
-                                        $$payload2.out += `<h3 class="svelte-maapth">Prabowo Subianto</h3> <p class="svelte-maapth">Prabowo-Gibran punya program yang sangat jelas, yaitu melanjutkan semua programnya Pak Jokowi.</p> `;
-                                        if (next) {
-                                          $$payload2.out += "<!--[-->";
-                                          $$payload2.out += `<button class="svelte-maapth">Lanjut</button>`;
-                                        } else {
-                                          $$payload2.out += "<!--[!-->";
-                                        }
-                                        $$payload2.out += `<!--]-->`;
-                                      } else {
-                                        $$payload2.out += "<!--[!-->";
-                                        if (index == 22) {
-                                          $$payload2.out += "<!--[-->";
-                                          $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">Akhirnya proyekmu selesai juga, gimana pelayanan kami? oke kan? Ini terlampir resume proyekmu ya. Semoga berhasil dan sukses terus, siapa tau bisa bikin proyek strategis nasional lagi.</p>`;
-                                        } else {
-                                          $$payload2.out += "<!--[!-->";
-                                          if (index == 23) {
-                                            $$payload2.out += "<!--[-->";
-                                            $$payload2.out += `<h3 class="svelte-maapth">Luhut Binsar Panjaitan</h3> <p class="svelte-maapth">Kelamaan! Status PSN-mu kami cabut!</p>`;
-                                          } else {
-                                            $$payload2.out += "<!--[!-->";
-                                            if (index == 24) {
-                                              $$payload2.out += "<!--[-->";
-                                              $$payload2.out += `<h3 class="svelte-maapth">Joko Widodo</h3> <p class="svelte-maapth">Status PSN-mu kami batalkan!</p>`;
-                                            } else {
-                                              $$payload2.out += "<!--[!-->";
-                                            }
-                                            $$payload2.out += `<!--]-->`;
-                                          }
-                                          $$payload2.out += `<!--]-->`;
-                                        }
-                                        $$payload2.out += `<!--]-->`;
-                                      }
-                                      $$payload2.out += `<!--]-->`;
-                                    }
-                                    $$payload2.out += `<!--]-->`;
-                                  }
-                                  $$payload2.out += `<!--]-->`;
-                                }
-                                $$payload2.out += `<!--]-->`;
-                              }
-                              $$payload2.out += `<!--]-->`;
-                            }
-                            $$payload2.out += `<!--]-->`;
-                          }
-                          $$payload2.out += `<!--]-->`;
-                        }
-                        $$payload2.out += `<!--]-->`;
-                      }
-                      $$payload2.out += `<!--]-->`;
-                    }
-                    $$payload2.out += `<!--]-->`;
-                  }
-                  $$payload2.out += `<!--]-->`;
-                }
-                $$payload2.out += `<!--]-->`;
-              }
-              $$payload2.out += `<!--]-->`;
-            }
-            $$payload2.out += `<!--]-->`;
-          }
-          $$payload2.out += `<!--]-->`;
-        }
-        $$payload2.out += `<!--]-->`;
-      }
-      $$payload2.out += `<!--]-->`;
-    }
-    $$payload2.out += `<!--]--></div> <div class="avatar svelte-maapth">`;
-    Avatar($$payload2, {
-      get index() {
-        return index;
-      },
-      set index($$value) {
-        index = $$value;
-        $$settled = false;
-      },
-      get area() {
-        return area;
-      },
-      set area($$value) {
-        area = $$value;
-        $$settled = false;
-      },
-      get time() {
-        return time;
-      },
-      set time($$value) {
-        time = $$value;
-        $$settled = false;
-      }
-    });
-    $$payload2.out += `<!----></div></div>`;
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { index, area, match, time });
-}
 function Game($$payload, $$props) {
   let index = $$props["index"];
   let sector = "a", jurus = "j", allowClick, match, area, time = 30, state = 0;
   let $$settled = true;
   let $$inner_payload;
   function $$render_inner($$payload2) {
-    $$payload2.out += `<div class="screen svelte-nvmvla">`;
+    $$payload2.out += `<div class="screen svelte-w3ud05">`;
     if (index == 3) {
       $$payload2.out += "<!--[-->";
       Sector($$payload2, {
@@ -1619,13 +1642,13 @@ function Game($$payload, $$props) {
 function Start($$payload, $$props) {
   let index = $$props["index"];
   let width;
-  $$payload.out += `<section class="svelte-11fx4if"><div class="title svelte-11fx4if"><div${add_styles({
+  $$payload.out += `<section class="svelte-isudi6"><div class="title svelte-isudi6"><div${add_styles({
     width: "0",
     "border-left": `#089f5e solid ${stringify(width)}px`
-  })} class="trapezoid-2 svelte-11fx4if"></div> <div${add_styles({
+  })} class="trapezoid-2 svelte-isudi6"></div> <div${add_styles({
     width: "0",
     "border-left": `black solid ${stringify(width)}px`
-  })} class="trapezoid svelte-11fx4if"></div> <h1 class="title-text-1 svelte-11fx4if" id="t1">PSN</h1> <h1 class="title-text-2 svelte-11fx4if" id="t2">for</h1> <h1 class="title-text-2 svelte-11fx4if" id="t3">DUMMIES</h1></div> <div class="bottom svelte-11fx4if"><div class="left svelte-11fx4if"><img src="./images/joko-widodo-1.png" alt="Prabowo Subianto - PSN for Dummies"></div> <div class="center svelte-11fx4if"><button class="svelte-11fx4if">MULAI</button></div> <div class="right svelte-11fx4if"><img src="./images/joko-widodo-1.png" alt="Joko Widodo - PSN for Dummies"></div></div></section>`;
+  })} class="trapezoid svelte-isudi6"></div> <h1 class="title-text-1 svelte-isudi6" id="t1">PSN</h1> <h1 class="title-text-2 svelte-isudi6" id="t2">for</h1> <h1 class="title-text-2 svelte-isudi6" id="t3">DUMMIES</h1></div> <div class="bottom svelte-isudi6"><div class="left svelte-isudi6"><img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies" class="svelte-isudi6"></div> <div class="center svelte-isudi6"><button class="svelte-isudi6">MULAI</button></div> <div class="right svelte-isudi6"><img src="./images/joko-widodo.png" alt="Joko Widodo - PSN for Dummies" class="svelte-isudi6"></div></div></section>`;
   bind_props($$props, { index });
 }
 const pageFlip = "/_app/immutable/assets/psn-audio-page-flip.BF8gG8iN.mp3";
@@ -1648,11 +1671,10 @@ function Container($$payload) {
       bgAudio.play();
     }
   }
-  console.log(index);
   let $$settled = true;
   let $$inner_payload;
   function $$render_inner($$payload2) {
-    $$payload2.out += `<section${add_styles({ height: index <= 2 ? "100vh" : "80vh" })} class="svelte-4wnmiu">`;
+    $$payload2.out += `<section${add_styles({ height: index <= 2 ? "100vh" : "(100vh - 200px)" })} class="svelte-1i0o3b5">`;
     if (index == 0) {
       $$payload2.out += "<!--[-->";
       Start($$payload2, {
