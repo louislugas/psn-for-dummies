@@ -34,7 +34,7 @@
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->
 
-<section style:height={index <= 2 ? '100vh' : '80vh'}>
+<section style:height={index <= 2 ? '100vh' : '(100vh - 200px)'}>
 <!-- <h1>{index}</h1> -->
     {#if index == 0}
         <!-- START -->
@@ -60,7 +60,7 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
     /* h1 {

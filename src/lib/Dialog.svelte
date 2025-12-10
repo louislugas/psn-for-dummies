@@ -5,6 +5,7 @@
 
     let visible = false
     let next = false
+    let width
 
     function typewriter(node, { speed = 1 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
@@ -41,18 +42,35 @@
         next = false
         setTimeout(() => {
             visible = true
-        }, 500)
+        }, 100)
     }
+
 </script>
 
+<svelte:body bind:clientWidth={width}/>
+
 <div class="dialog">
-    <div class="text">
+    <div class="text"
+        style:width={() => {
+            if (width > 450) {
+                if (index == 1 || index == 2 || index == 12) {
+                    return '30%'
+                } else {
+                    return '60%'
+                } 
+            } else {
+                return '100%'
+            }
+        }}
+    >   
         {#if index == 3} <!-- PILIH SEKTOR -->
-            <p in:typewriter>
-                Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?
-            </p>
-            {#if next}
-            <button on:click={() => goto(4)}>Lanjut</button>
+            {#if visible}
+                <p in:typewriter>
+                    Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?
+                </p>
+                <!-- {#if next}
+                <button on:click={() => goto(4)}>Lanjut</button>
+                {/if} -->
             {/if}
 
         {:else if index == 4} <!-- INFOGRAFIS STATIS -->
@@ -219,11 +237,13 @@
     </div>
 
     {#if index <= 13}
-        <div class="avatar">
+        <div class="avatar"
+            style:width={index == 1 || index == 2 || index == 12 ? '70%' : '40%'}
+        >
             <Avatar bind:index bind:area bind:time/>
         </div>
     {/if}
-    
+
 </div>
 
 <style>
@@ -241,8 +261,7 @@
         /* background-color: aquamarine; */
     }
     .avatar {
-        width:40%;
-        /* background-color: chartreuse; */
+        /* width:40%; */
         /* position: absolute; */
         bottom:200px;
         height:100%;
@@ -291,7 +310,7 @@
         }
         .avatar {
             position:absolute;
-            width:40%;
+            /* width:40%; */
             bottom:180px;
             right:0;
         }

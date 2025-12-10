@@ -110,6 +110,7 @@
     <!-- <button on:click={() => index = 0}
         style:margin-top="0.5rem"
     >Bagikan</button> -->
+    <div class="divider"></div>
     <div class="congratulations">
         <div class="left">
             <img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies">
@@ -131,14 +132,17 @@
         display: flex;
         margin-top: 2rem;
         width:100%;
-        height:calc(100% - 2rem);
+        height: 100%;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-
+        height:calc(100% - 1rem);
     }
     div {
         width:90%;
+    }
+    .divider {
+        height:100%;
     }
     .congratulations {
         width:100%;
@@ -146,6 +150,7 @@
         justify-content: center;
         align-items: flex-end;
         flex-grow: 2;
+        
     }
     .congratulations > div {
         width:33%;
@@ -240,6 +245,9 @@
     @media only screen and (max-width: 400px) {
         .content {
             font-size: 0.9rem;
+        }
+        .center > p {
+            font-size:1rem;
         }
     }
 </style>

@@ -34,7 +34,7 @@
             <button class="sector" class:selected={sector == "bendungan" && selected} on:click={select} data-value="bendungan">Bendungan</button>
             <button class="sector" class:selected={sector == "jalantol" && selected} on:click={select} data-value="jalantol">Jalan Tol</button>
             <button class="sector" class:selected={sector == "kereta" && selected} on:click={select} data-value="kereta">Kereta Api</button>
-            <button class="sector" class:selected={sector == "bandara" && selected} on:click={select} data-value="bandara">Bandara/Pelabuhan</button>
+            <button class="sector" class:selected={sector == "bandara" && selected} on:click={select} data-value="bandara">Bandara/ Pelabuhan</button>
             <button class="sector" class:selected={sector == "energi" && selected} on:click={select} data-value="energi">Infrastruktur Energi</button>
             <button class="sector" class:selected={sector == "smelter" && selected} on:click={select} data-value="smelter">Smelter</button>
             <button class="sector" class:selected={sector == "kie" && selected} on:click={select} data-value="kie">Kawasan Industri/ Ekonomi</button>
@@ -115,5 +115,11 @@
     .next:disabled {
         border: 2px solid grey;
         box-shadow: 2px 2px 0 grey;
+    }
+    @media only screen and (max-width: 400px) {
+        .sector {
+            aspect-ratio: 1/1.5;
+            font-size:0.7rem;
+        }
     }
 </style>

@@ -108,6 +108,7 @@
         width:30%;
         height:100%;
         align-items: flex-end;
+        pointer-events: none;
     }
     .center {
         display: flex;
@@ -142,6 +143,9 @@
             border-radius: 1rem;
             padding-left: 1rem;
             padding-right:1rem;
+        }
+        img {
+            width:240px
         }
     }
 </style>

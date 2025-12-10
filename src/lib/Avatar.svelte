@@ -10,7 +10,7 @@
     <img src="./images/avatar-pejabat.png" alt="Avatar Pejabat">
 
 {:else if index == 12} <!-- NGOBROL -->
-    <img src="./images/prabowo-subianto.png"  alt="Avatar Prabowo Subianto">
+    <img src="./images/avatar-ngobrol.png"  alt="Avatar Ngobrol">
 
 {:else if index == 13} <!-- PEJABAT ANONIM -->
     <img src="./images/avatar-pejabat.png" alt="Avatar Pejabat">
