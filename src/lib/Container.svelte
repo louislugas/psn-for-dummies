@@ -29,7 +29,7 @@
     }
 
     // DEBUG CHECKER
-    $:console.log(index)
+    // $:console.log(index)
 </script>
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->

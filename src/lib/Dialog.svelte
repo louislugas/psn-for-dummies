@@ -217,9 +217,13 @@
             </p>
         {/if}
     </div>
-    <div class="avatar">
-        <Avatar bind:index bind:area bind:time/>
-    </div>
+
+    {#if index <= 13}
+        <div class="avatar">
+            <Avatar bind:index bind:area bind:time/>
+        </div>
+    {/if}
+    
 </div>
 
 <style>

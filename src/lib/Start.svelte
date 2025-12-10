@@ -20,13 +20,13 @@
     </div>
     <div class="bottom">
         <div class="left">
-            <img src="./images/joko-widodo-1.png" alt="Prabowo Subianto - PSN for Dummies">
+            <img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies">
         </div>
         <div class="center">
             <button on:click={() => {index = 1}}>MULAI</button>
         </div>
         <div class="right">
-            <img src="./images/joko-widodo-1.png" alt="Joko Widodo - PSN for Dummies">
+            <img src="./images/joko-widodo.png" alt="Joko Widodo - PSN for Dummies">
         </div>
         
     </div>

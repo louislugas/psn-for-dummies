@@ -111,13 +111,17 @@
         style:margin-top="0.5rem"
     >Bagikan</button> -->
     <div class="congratulations">
-        <div class="left"></div>
+        <div class="left">
+            <img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies">
+        </div>
         <div class="center">
             <p>
                 Kamu sudah siap jadi investor PSN!
             </p>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <img src="./images/joko-widodo.png" alt="Joko Widodo - PSN for Dummies">
+        </div>
         
     </div>
 </section>
@@ -127,10 +131,11 @@
         display: flex;
         margin-top: 2rem;
         width:100%;
-        height:100%;
+        height:calc(100% - 2rem);
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
+
     }
     div {
         width:90%;
@@ -139,22 +144,30 @@
         width:100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height:100%;
-        margin-top: 1rem;
+        align-items: flex-end;
+        flex-grow: 2;
     }
     .congratulations > div {
-        width:33%
+        width:33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+    }
+    .left, .right {
+        align-items: flex-end;
+    }
+    .congratulations > div > img {
+        height:100%;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
     }
     .center > p {
         font-family: 'Lexend Giga', sans-serif;
         text-align: center;
         font-weight: 600;
         font-size: 1.4rem;
-    }
-    .right, .left {
-        height:100%;
-        background-color: red;
     }
     h2 {
         font-family: 'Lexend Giga', sans-serif;
