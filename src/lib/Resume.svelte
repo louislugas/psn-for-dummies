@@ -110,7 +110,7 @@
     <!-- <button on:click={() => index = 0}
         style:margin-top="0.5rem"
     >Bagikan</button> -->
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
     <div class="congratulations">
         <div class="left">
             <img src="./images/prabowo-subianto.png" alt="Prabowo Subianto - PSN for Dummies">
@@ -130,9 +130,8 @@
 <style>
     section {
         display: flex;
-        margin-top: 2rem;
+        margin-top: 1rem;
         width:100%;
-        height: 100%;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
@@ -150,7 +149,7 @@
         justify-content: center;
         align-items: flex-end;
         flex-grow: 2;
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
         
     }
     .congratulations > div {
@@ -177,7 +176,8 @@
     }
     h2 {
         font-family: 'Lexend Giga', sans-serif;
-        margin-top: 0;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
     p {
         font-family: 'Noto Sans', sans-serif;
@@ -248,7 +248,20 @@
             font-size: 0.8rem;
         }
         .center > p {
-            font-size:1rem;
+            font-size:0.9rem;
+        }
+        button {
+            font-size:0.7rem;
+            padding:0.2rem;
+            border-radius: 0.25rem;
+        }
+        .button {
+            font-size:0.7rem;
+            padding:0.2rem;
+            border-radius: 0.25rem;
+        }
+        .congratulations {
+            margin-bottom:2rem;
         }
     }
 </style>
