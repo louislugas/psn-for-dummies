@@ -105,7 +105,7 @@
 
     <div class='button-container'>
         <button on:click={() => index = 0}>Selesai</button>
-        <a class='button' href="https://projectmultatuli.org/proyek-sengsara-nasional/">Baca Serial PSN</a>
+        <a class='button' href="https://projectmultatuli.org/proyek-sengsara-nasional/" target="_blank">Baca Serial PSN</a>
     </div>
     <!-- <button on:click={() => index = 0}
         style:margin-top="0.5rem"
@@ -150,6 +150,7 @@
         justify-content: center;
         align-items: flex-end;
         flex-grow: 2;
+        margin-bottom: 1rem;
         
     }
     .congratulations > div {
@@ -172,7 +173,7 @@
         font-family: 'Lexend Giga', sans-serif;
         text-align: center;
         font-weight: 600;
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
     h2 {
         font-family: 'Lexend Giga', sans-serif;
@@ -183,7 +184,7 @@
         margin: 0;
     }
     .resume {
-        margin-bottom:1rem;
+        margin-bottom:0.5rem;
     }
     .head {
         font-family: 'Lexend Giga', sans-serif;
@@ -192,7 +193,7 @@
         margin-bottom: 0.1rem;
     }
     .content {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 300;
     }
     .tokoh-container {
@@ -239,12 +240,12 @@
     .button-container {
         display: flex;
         flex-direction: column;
-        margin-top:1rem;
+        margin-top:0.5rem;
         gap:0.2rem;
     }
     @media only screen and (max-width: 400px) {
         .content {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         .center > p {
             font-size:1rem;

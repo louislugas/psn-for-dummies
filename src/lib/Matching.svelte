@@ -278,10 +278,10 @@
 	}
 
 	.card {
-		width:90px;
-		height:120px;
+		width:66px;
+		height:90px;
 		padding:0.3rem;
-		font-size:0.8rem;
+		font-size:0.7rem;
 	}
 
 	h2 {
@@ -325,7 +325,7 @@
 		flex-direction:column;
 	}
 	.target > .column {
-		min-height:200px;
+		min-height:150px;
 		border:none;
 	}
 

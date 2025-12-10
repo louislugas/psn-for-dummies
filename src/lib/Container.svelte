@@ -30,11 +30,16 @@
 
     // DEBUG CHECKER
     // $:console.log(index)
+
+    let scale = 'scale(1)';
+    document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
+    document.body.style.msTransform =   scale;       // IE 9
+    document.body.style.transform = scale;     // General
 </script>
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->
 
-<section style:height={index <= 2 ? '100vh' : '(100vh - 200px)'}>
+<section style:height={index <= 2 ? '100vh' : '(100vh - 150px)'}>
 <!-- <h1>{index}</h1> -->
     {#if index == 0}
         <!-- START -->
@@ -56,7 +61,7 @@
 <style>
     section {
         background-color: lightyellow;
-        width:min(660px, 100%);
+        width:min(500px, 100%);
         margin: 0 auto;
         display: flex;
         flex-direction: column;

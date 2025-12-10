@@ -110,6 +110,9 @@
         align-items: flex-end;
         pointer-events: none;
     }
+    img {
+        max-width:240px;
+    }
     .center {
         display: flex;
         align-items: center;
@@ -117,7 +120,7 @@
     }
     button {
         font-family: "Atma", sans-serif;
-        font-size:3rem;
+        font-size:1.5rem;
         background-color:#fdf10f;
         border-radius: 1rem;
         padding-left: 2rem;

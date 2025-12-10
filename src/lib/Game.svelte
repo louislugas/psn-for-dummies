@@ -78,13 +78,13 @@
         width:100%;
         background-color: lightyellow;
         /* aspect-ratio: 1; */
-        height:calc(100% - 200px);
+        height:calc(100% - 150px);
         margin-top: 0;
     }
 
     @media only screen and (max-width: 400px) {
         .screen {
-            height:calc(100% - 200px);
+            height:calc(100% - 150px);
         }
     }
     

@@ -88,7 +88,7 @@
     }
     dialog {
         width:88%;
-        max-width: 660px;
+        max-width: 500px;
         background-color: lightyellow;
         border-radius: 0.5rem;
         font-family: 'Noto Sans', sans-serif;

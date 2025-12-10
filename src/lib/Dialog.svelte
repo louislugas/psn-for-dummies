@@ -52,7 +52,7 @@
 <div class="dialog">
     <div class="text"
         style:width={() => {
-            if (width > 450) {
+            if (width >= 500) {
                 if (index == 1 || index == 2 || index == 12) {
                     return '30%'
                 } else {
@@ -66,7 +66,7 @@
         {#if index == 3} <!-- PILIH SEKTOR -->
             {#if visible}
                 <p in:typewriter>
-                    Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br>Kalau dari contoh di atas, kamu tertarik yang mana?
+                    Ini contoh proyek-proyek yang banyak dikasih label PSN. Ada juga sih proyek lain macam PLTS dan IKN, tapi... Ah, sudahlah. Gak jelas itu.<br><br> Kalau dari contoh di atas, kamu tertarik yang mana?
                 </p>
                 <!-- {#if next}
                 <button on:click={() => goto(4)}>Lanjut</button>
@@ -96,12 +96,12 @@
             <p in:typewriter>
                 Geser dokumen di sebelah kiri ke map di sebelah kanan sesuai dengan kategorinya ya!
             </p>
-            {#if match}
+            <!-- {#if match}
             <button on:click={() => goto(7)}>Lanjut</button>
-            {/if}
+            {/if} -->
         {:else if index == 6} <!-- MENCOCOKKAN DOKUMEN -->
             <p in:typewriter>
-                Selamat! Dokumen persyaratanmu sudah lengkap!
+                Nah, itu kamu paham! Gampang kan?
             </p>
             {#if next}
             <button on:click={() => goto(7)}>Lanjut</button>
@@ -109,10 +109,7 @@
 
         {:else if index == 7} <!-- PILIH AREA -->
             <p in:typewriter>
-                Sebelumnya kamu sudah memilih sektor, sekarang pilih di mana lokasi proyekmu! Pastikan sektormu sesuai dengan tata ruang lokasinya yaa~
-                <br>
-                <br>
-                Klik area di peta untuk memilih sektor.
+                Sekarang, klik area di peta untuk memilih lokasi proyekmu.
             </p>
 
         {:else if index == 8} <!-- SOSIALISASI PROYEK -->
@@ -158,87 +155,19 @@
                 Pilih satu jurus yang kamu paling cocok!
             </p>
 
-        {:else if index == 15} <!-- TAMBAH LABEL HIJAU -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                Nah gitu dong, tinggal tambah label saja kan gampang.
-            </p>
-            {#if next}
-            <button on:click={() => goto(16)}>Lanjut</button>
-            {/if}
-
-        {:else if index == 16} <!-- CEK FAKTA LAPANGAN KERJA -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                Akhirnya proyekmu selesai! Bener nggak proyekmu udah ciptain lapangan kerja?
-            </p>
-        {:else if index == 17} <!-- FAKTA LAPANGAN KERJA -->
-            <!-- tanpa dialog -->
-            <h3>Airlangga Hartanto</h3>
-            <p in:typewriter>
-                PSN + hilirisasi = kunci kekuatan ekonomi Indonesia.
-            </p>
-            {#if next}
-            <button on:click={() => goto(18)}>Tapi...</button>
-            {/if}
-
-        {:else if index == 18} <!-- FAKTA LAPANGAN KERJA -->
-            <!-- tanpa dialog -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                ...
-            </p>
-            {#if next}
-            <button on:click={() => goto(19)}>Lanjut</button>
-            {/if}
-
-        {:else if index == 19} <!-- FAKTA LAPANGAN KERJA -->
-            <!-- tanpa dialog -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                ...
-            </p>
-            {#if next}
-            <button on:click={() => goto(20)}>Lanjut</button>
-            {/if}
-        {:else if index == 20} <!-- FAKTA LAPANGAN KERJA -->
-            <!-- tanpa dialog -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                ...
-            </p>
-            {#if next}
-            <button on:click={() => goto(21)}>Lanjut</button>
-            {/if}
-        {:else if index == 21} <!-- FAKTA LAPANGAN KERJA -->
-            <h3>Prabowo Subianto</h3>
-            <p in:typewriter>
-                Prabowo-Gibran punya program yang sangat jelas, yaitu melanjutkan semua programnya Pak Jokowi.
-            </p>
-            {#if next}
-            <button on:click={() => goto(22)}>Lanjut</button>
-            {/if}
-        {:else if index == 22} <!-- RESUME PROYEK -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                Akhirnya proyekmu selesai juga, gimana pelayanan kami? oke kan? Ini terlampir resume proyekmu ya. Semoga berhasil dan sukses terus, siapa tau bisa bikin proyek strategis nasional lagi.
-            </p>
+        
         {:else if index == 23} <!-- GAME OVER via AMDAL -->
-            <h3>Luhut Binsar Panjaitan</h3>
+            <!-- <h3>Luhut Binsar Panjaitan</h3> -->
             <p in:typewriter>
-                Kelamaan! Status PSN-mu kami cabut!
+                Kelamaan!
             </p>
-        {:else if index == 24} <!-- GAME OVER via LABEL HIJAU -->
-            <h3>Joko Widodo</h3>
-            <p in:typewriter>
-                Status PSN-mu kami batalkan!
-            </p>
+       
         {/if}
     </div>
 
     {#if index <= 13}
         <div class="avatar"
-            style:width={index == 1 || index == 2 || index == 12 ? '70%' : '40%'}
+            style:width={index == 1 || index == 2 || index == 12 ? '60%' : '40%'}
         >
             <Avatar bind:index bind:area bind:time/>
         </div>
@@ -248,24 +177,24 @@
 
 <style>
     .dialog {
-        width:min(660px, 100%);
+        width:min(500px, 100%);
         background-color: #fdf10f;
-        height:200px;
+        height:150px;
         display: flex;
         position: absolute;
         bottom:0;
         border-top: solid #089f5e 5px;
     }
     .text {
-        width:100%;
+        width:60%;
         /* background-color: aquamarine; */
     }
     .avatar {
-        /* width:40%; */
+        width:40%;
         /* position: absolute; */
-        bottom:200px;
+        bottom:150px;
         height:100%;
-        margin-right:1rem;
+        /* margin-right:1rem; */
         /* bottom:100%;
         right:1rem; */
         pointer-events: none;
@@ -273,8 +202,8 @@
     .text > p {
         margin:1rem;
         font-family: "Noto Sans", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5rem;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
         /* margin-top:0; */
     }
     .text > h3 {
@@ -308,11 +237,11 @@
             width:100%;
             
         }
-        .avatar {
-            position:absolute;
+        /* .avatar { */
+            /* position:absolute; */
             /* width:40%; */
-            bottom:180px;
+            /* bottom:180px;
             right:0;
-        }
+        } */
     }
 </style>

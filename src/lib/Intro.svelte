@@ -16,13 +16,13 @@
         t:"Saat berkunjung ke Indonesia, Anda mendapat undangan makan malam di rumah seorang pejabat. Dia kenalan lama Anda, punya pengaruh besar dan koneksi luas di pemerintahan.",
         },
         {
-        t:"Saat makan malam, kenalan Anda bertanya,",
+        t:"Saat makan malam, kenalan Anda bertanya:",
         },
         {
         t:"Kamu tidak tertarik investasi di PSN?",
         },
         {
-        t:"Anda balik bertanya", 
+        t:"Anda balik bertanya:", 
         },
         {
         t:"“Apa itu PSN?”",
@@ -65,35 +65,57 @@
         }
     ]
 
-    function typewriter(node, { speed = 1, delay = 0, end = false}) {
-        console.log(node.nodeType)
-		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
+    function typewriter(node, { delay = 0, speed = 10 }) {
+        const textNodes = getAllTextNodes(node);
+        if (!textNodes.length) {
+            throw new Error(`This transition only works on elements with text nodes`);
+        }
 
-		// if (!valid) {
-		// 	throw new Error(`This transition only works on elements with a single text node child`);
-		// }
+        let totalLength = 0;
+        const ranges = textNodes.map(textNode => {
+            const range = [totalLength, totalLength + textNode.textContent.length];
+            totalLength += textNode.textContent.length;
+            const text = textNode.textContent;
+            textNode.textContent = '';
+            return { textNode, range, text };
+        });
 
-		const text = node.textContent
-		const duration = text.length / (speed * 0.1)
-		
-		return {
+        let currentRangeIndex = 0;
+        function getCurrentRange(i) {
+            while (ranges[currentRangeIndex].range[1] < i && currentRangeIndex < ranges.length) {
+                const { textNode, text } = ranges[currentRangeIndex];
+                textNode.textContent = text;		// finish typing up the last node
+                currentRangeIndex++;
+            }
+            return ranges[currentRangeIndex];
+        }
+        const duration = totalLength * speed;
+
+        return {
             delay,
-			duration,
-			tick: (t) => {
-				const i = Math.trunc(text.length * t)
-				node.textContent = text.slice(0,i)
-                // if (i < text.length) {
-                //     next = false
-                // } else if (i == text.length) {
-                //     console.log("text ended")
-                //     console.log(end)
-                //     if (end == true) {
-                //         next = true
-                //     }
-                // }
-			}
-		};
-	}
+            duration,
+            tick: t => {
+                const progress = ~~(totalLength * t);
+                const { textNode, range, text } = getCurrentRange(progress);
+                const [start, end] = range;
+                const textLength = ((progress - start) / (end - start)) * text.length;
+                textNode.textContent = text.slice(0, textLength);
+            },
+        };
+    }
+
+    function getAllTextNodes(node) {
+        if (node.nodeType === 3) {
+            return [node];
+        } else if (node.hasChildNodes()) {
+            let list = [];
+            for (let child of node.childNodes) {
+                getAllTextNodes(child).forEach(textNode => list.push(textNode));
+            }
+            return list;
+        }
+        return [];
+    }
 
 
     $: if (index) {
@@ -110,20 +132,23 @@
 <section>
     {#if index == 1}
         {#if visible}
-        <p in:typewriter>{text[0].t}</p>
-        <p in:typewriter={{delay:text[0].t.length * d}}>{text[1].t}</p>
-        <p in:typewriter={{delay:(text[0].t.length + text[1].t.length) * d}}>{text[2].t}</p>
-
-        <div class="dialog-container left">
-            <p class="dialog" in:fly={{x:-100, delay:(text[0].t.length + text[1].t.length + text[2].t.length) * d}}>{text[3].t}</p>
+        <div class="text" in:typewriter>
+            <p>{text[0].t}</p>
+            <p>{text[1].t}</p>
+            <p>{text[2].t}</p>
         </div>
 
-
-        <p in:typewriter={{delay:(text[0].t.length + text[1].t.length + text[2].t.length + text[3].t.length) * d}}>{text[4].t}</p>
+        <div class="dialog-container left">
+            <p class="dialog" in:fly={{x:-100, delay:3300}}>{text[3].t}</p>
+        </div>
+        <br>
+        <div class="text" in:typewriter={{delay:4100}}>
+            <p>{text[4].t}</p>
+        </div>
 
         <div class="dialog-container right">
             <p class="dialog" 
-            in:fly={{x:500, delay:(text[0].t.length + text[1].t.length + text[2].t.length + text[3].t.length + text[4].t.length) * d}}
+            in:fly={{x:500, delay:4700}}
             on:introend={() => {setTimeout(() => {next = true}, 500)}}>{text[5].t}</p>
         </div>
 
@@ -136,20 +161,20 @@
         {#if visible}
             <p in:typewriter>{text2[0].t}</p>
             <div class="dialog-container left">
-                <p  class="dialog"in:fly={{delay:text2[0].t.length * d}}>{text2[1].t}</p>
+                <p  class="dialog"in:fly={{x:-100, delay:400}}>{text2[1].t}</p>
             </div>
             <div class="dialog-container left">
-                <p class="dialog" in:fly={{delay:(text2[0].t.length + 100) * d}}>{text2[2].t}</p>
+                <p class="dialog" in:fly={{x:-100,delay:1000}}>{text2[2].t}</p>
             </div>
             <div class="dialog-container left">
-                <p class="dialog" in:fly={{x:-100, delay:(text2[0].t.length + 200) * d}}>{text2[3].t}</p>
+                <p class="dialog" in:fly={{x:-100, delay:1600}}>{text2[3].t}</p>
             </div>
 
-
-            <p in:typewriter={{delay:(text2[0].t.length + 300) * d}}>{text2[4].t}</p>
+            <br>
+            <p in:typewriter={{delay:2000}}>{text2[4].t}</p>
 
             <div class="dialog-container right">
-                <p class="dialog" in:fly={{x:500, end:true, delay:(text2[0].t.length + 300 + text2[4].t.length) * d}}
+                <p class="dialog" in:fly={{x:500, end:true, delay:2600}}
                 on:introend={() => {setTimeout(() => {next = true}, 500)}}>{text2[5].t}</p>
             </div>
 
@@ -162,12 +187,13 @@
 
     {:else if index == 12}
         {#if visible}
-            <p in:typewriter>{text3[0].t}</p>
-            <p in:typewriter={{delay:text3[0].t.length * d}}>{text3[1].t}</p>
-            <p in:typewriter={{delay:(text3[0].t.length + text3[1].t.length) * d}}>{text3[2].t}</p>
-
+        <div class="text" in:typewriter>
+            <p>{text3[0].t}</p>
+            <p>{text3[1].t}</p>
+            <p>{text3[2].t}</p>
+        </div>
             <div class="dialog-container left">
-                <p class="dialog" in:fly={{x:-100, delay:(text3[0].t.length + text3[1].t.length + text3[2].t.length) * d}}
+                <p class="dialog" in:fly={{x:-100, delay:2800}}
                 on:introend={() => {setTimeout(() => {next = true}, 500)}}>{text3[3].t}</p>
             </div>      
         {/if}
@@ -194,18 +220,23 @@
         background-color: lightyellow;
         overflow: hidden;
     }
+    .text {
+        display: flex;
+        flex-direction: column;
+        width:90%
+    }
     p {
         font-family: "Noto Sans", sans-serif;
         width:90%;
         color:black;
-        font-size: 0.9rem;
+        font-size: 0.72rem;
     }
     button {
         margin-top:1rem;
         font-family: "Atma", sans-serif;
-        font-size:1.5rem;
+        font-size:1.2rem;
         background-color:#fdf10f;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         padding-left: 1rem;
         padding-right:1rem;
         border: black solid 3px;
@@ -214,6 +245,7 @@
     .dialog-container {
         display: flex;
         width: 90% ;
+
     }
     .right {
         text-align: right;
@@ -226,13 +258,15 @@
         border-radius: 0.5rem;
         box-shadow: 2px 2px 0 #089f5e;
         width: 50%;
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem;
     }
     .left .dialog {
         background-color: #fcf8b9;
     }   
     @media only screen and (max-width: 400px) {
         p {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin-top:0;
         }
         .dialog {
