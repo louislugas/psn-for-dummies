@@ -81,20 +81,9 @@
             <button on:click={() => goto(5)}>Lanjut</button>
             {/if}
 
-        {:else if index == 5} <!-- INFOGRAFIS STATIS -->
-            <p in:typewriter>
-                Yang terakhir dan nggak kalah penting  itu Kriteria Operasional. Terutama duit investasinya, itu yang paling penting.
-            </p>
-            {#if next}
-            <button on:click={() => goto(6)}>Lanjut</button>
-            {/if}
-
         {:else if index == 5} <!-- MENCOCOKKAN DOKUMEN -->
             <p in:typewriter>
-                Nah, sekarang kamu harus melengkapi dokumen-dokumen terkait biar proyekmu segera disetujui.
-            </p>
-            <p in:typewriter>
-                Geser dokumen di sebelah kiri ke map di sebelah kanan sesuai dengan kategorinya ya!
+                Ini dokumen-dokumen perizinan yang harus dilengkapi biar proyekmu segera disetujui. Coba, bisa gak kamu tempatkan dokumen-dokumennya di kategori yang tepat?
             </p>
             <!-- {#if match}
             <button on:click={() => goto(7)}>Lanjut</button>

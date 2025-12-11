@@ -43,7 +43,7 @@
 		state == 3 ? "Tangkap jurnalis" :
 		""
 	}
-	<div>
+	<div style:margin-top="1rem">
 		<button on:click={() => {index = 12}}>Ya</button>
 		<button on:click={reset}>Tidak</button>
 	</div>
@@ -86,6 +86,7 @@
 		align-items:center;
 		flex-direction:column;
 		font-family: 'Noto Sans', sans-serif;
+		font-size:0.8rem;	
 	}
 	button {
 		background-color: #fdf10f;

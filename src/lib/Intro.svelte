@@ -25,13 +25,13 @@
         t:"Anda balik bertanya:", 
         },
         {
-        t:"“Apa itu PSN?”",
+        t:"Apa itu PSN?",
         }
     ]
 
     let text2 = [
         {
-        t:"Kenalan Anda menjelaskan",
+        t:"Kenalan Anda menjelaskan:",
         },
         {
         t:"PSN adalah Proyek Strategis Nasional",
@@ -43,7 +43,7 @@
             t:"Sekarang, Presiden Prabowo Subianto melanjutkan skema PSN. Per September 2025, sudah ada 250 proyek dan program di daftar PSN."
         },
         {
-            t:"Tertarik, Anda bertanya lagi,"
+            t:"Tertarik, Anda bertanya lagi:"
         },
         {
             t:"Bagaimana caranya saya punya PSN?"
@@ -58,7 +58,7 @@
         t:"Anda teringat pernah membaca berita soal bagaimana PSN di Indonesia telah memicu kerusakan lingkungan, konflik lahan, dan pelanggaran HAM.",
         },
         {
-        t:"Anda tanya pendapat kenalan Anda, yang segera membalas,",
+        t:"Anda tanya pendapat kenalan Anda, yang segera membalas:",
         },
         {
         t:"Gampang"
@@ -230,16 +230,18 @@
         width:90%;
         color:black;
         font-size: 0.72rem;
+        margin-top:0.5rem;
+        margin-bottom:0.5rem;
     }
     button {
         margin-top:1rem;
         font-family: "Atma", sans-serif;
-        font-size:1.2rem;
+        font-size:1rem;
         background-color:#fdf10f;
         border-radius: 0.5rem;
         padding-left: 1rem;
         padding-right:1rem;
-        border: black solid 3px;
+        border: black solid 2px;
         font-weight:500;
     }
     .dialog-container {
@@ -257,7 +259,7 @@
         background-color: #FDF10F;
         border-radius: 0.5rem;
         box-shadow: 2px 2px 0 #089f5e;
-        width: 50%;
+        width: 80%;
         margin-bottom: 0.25rem;
         margin-top: 0.25rem;
     }

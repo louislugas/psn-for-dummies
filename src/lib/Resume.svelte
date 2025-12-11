@@ -135,7 +135,7 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        height:calc(100% - 1rem);
+        height:calc(100vh - 1rem);
     }
     div {
         width:90%;

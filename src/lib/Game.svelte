@@ -71,7 +71,9 @@
     {/if}
 </div>
 
-<Dialog bind:index bind:match bind:area bind:time/>
+{#if index != 14}
+    <Dialog bind:index bind:match bind:area bind:time/>
+{/if}
 
 <style>
     .screen {

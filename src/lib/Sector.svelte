@@ -89,7 +89,8 @@
     }
     .sector {
         width:21%;
-        aspect-ratio: 1/1.3;
+        aspect-ratio: 1/1.2;
+        font-size: 0.7rem;
     }
     button {
         background-color: lightgrey;
@@ -100,7 +101,7 @@
         transition: background 300ms ease-in-out;
     }
     .next {
-        margin-top:2rem;
+        margin-top:1rem;
         background-color: lightyellow;
         border-radius: 0.5rem;
         font-weight: 600;

@@ -246,10 +246,10 @@
 		height:100%;
 	}
 	.source {
-		width:42%;
+		width:50%;
 	}
 	.target {
-		width:58%;
+		width:50%;
 	}
 	div >li {
 		height:100%;
@@ -278,10 +278,10 @@
 	}
 
 	.card {
-		width:66px;
-		height:90px;
+		width:55px;
+		height:70px;
 		padding:0.3rem;
-		font-size:0.7rem;
+		font-size:0.65rem;
 	}
 
 	h2 {
@@ -325,7 +325,7 @@
 		flex-direction:column;
 	}
 	.target > .column {
-		min-height:150px;
+		min-height:120px;
 		border:none;
 	}
 
@@ -337,10 +337,10 @@
 			font-size:0.8rem;
 		}
 		.source {
-			width:40%;
+			width:50%;
 		}
 		.target {
-			width:58%;
+			width:50%;
 		}
 		.target > .column {
 			min-height:110px;
