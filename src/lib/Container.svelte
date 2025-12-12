@@ -8,33 +8,28 @@
     import gameWin from "$lib/audio/psn-audio-success.mp3"
 
     let index = 0
-    let bgAudio
-    let goAudio
-    let winAudio
+    let bgAudio // page flip audio
+    let goAudio // game over audio
+    let winAudio // win audio
 
     // AUDIO PLAY
     $: if (index >= 1) {
         if (index == 23) {
+            // game over audio
             goAudio.play()
         } else if (index == 24) {
+            // game over audio
             goAudio.play()
-        } else if (index == 22) {
+        } else if (index == 14) {
+            // win audio
             winAudio.play()
-        } else if (index == 7) {
-
         } else {
-            // audio play
+            // audio play page flip
             bgAudio.play()
         }
     }
-
     // DEBUG CHECKER
     // $:console.log(index)
-
-    let scale = 'scale(1)';
-    document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
-    document.body.style.msTransform =   scale;       // IE 9
-    document.body.style.transform = scale;     // General
 </script>
 
 <!-- <input type="number" class="debug" bind:value={index} style:z-index="999"> -->

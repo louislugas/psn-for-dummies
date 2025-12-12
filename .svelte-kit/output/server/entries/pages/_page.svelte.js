@@ -1540,19 +1540,14 @@ function Container($$payload) {
   let bgAudio;
   let goAudio;
   let winAudio;
-  let scale = "scale(1)";
-  document.body.style.webkitTransform = scale;
-  document.body.style.msTransform = scale;
-  document.body.style.transform = scale;
   if (index >= 1) {
     if (index == 23) {
       goAudio.play();
     } else if (index == 24) {
       goAudio.play();
-    } else if (index == 22) {
+    } else if (index == 14) {
       winAudio.play();
-    } else if (index == 7) ;
-    else {
+    } else {
       bgAudio.play();
     }
   }

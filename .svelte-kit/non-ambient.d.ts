@@ -37,6 +37,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/iframe" | "/iframe/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/audio/psn-audio-button.mp3" | "/audio/psn-audio-page-flip.mp3" | "/audio/psn-audio-swoosh.mp3" | "/favicon.png" | "/images/avatar-ngobrol.png" | "/images/avatar-pejabat.png" | "/images/joko-widodo.png" | "/images/petani-01.svg" | "/images/petani-02.svg" | "/images/petani-03.svg" | "/images/petani-04.svg" | "/images/petani-05.svg" | "/images/petani-06.svg" | "/images/prabowo-subianto.png" | string & {};
+		Asset(): "/audio/psn-audio-beep.mp3" | "/audio/psn-audio-button.mp3" | "/audio/psn-audio-game-over.mp3" | "/audio/psn-audio-page-flip.mp3" | "/audio/psn-audio-success.mp3" | "/audio/psn-audio-swoosh.mp3" | "/favicon.png" | "/images/avatar-ngobrol.png" | "/images/avatar-pejabat.png" | "/images/joko-widodo.png" | "/images/petani-01.svg" | "/images/petani-02.svg" | "/images/petani-03.svg" | "/images/petani-04.svg" | "/images/petani-05.svg" | "/images/petani-06.svg" | "/images/prabowo-subianto.png" | string & {};
 	}
 }
