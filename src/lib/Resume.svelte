@@ -123,8 +123,8 @@
         <div class="right">
             <img src="./images/joko-widodo.png" alt="Joko Widodo - PSN for Dummies">
         </div>
-        
     </div>
+    <div class="dialog"></div>
 </section>
 
 <style>
@@ -243,6 +243,9 @@
         margin-top:0.5rem;
         gap:0.2rem;
     }
+    .dialog {
+        display: none;
+    }
     @media only screen and (max-width: 400px) {
         .content {
             font-size: 0.8rem;
@@ -261,7 +264,17 @@
             border-radius: 0.25rem;
         }
         .congratulations {
-            margin-bottom:2rem;
+            /* margin-bottom:2rem; */
+        }
+        .dialog {
+            display: flex;
+            width:min(500px, 100%);
+            background-color: #fdf10f;
+            height:150px;
+            /* position: absolute; */
+            bottom:0;
+            border-top: solid #089f5e 5px;
+            max-height:180px;
         }
     }
 </style>
